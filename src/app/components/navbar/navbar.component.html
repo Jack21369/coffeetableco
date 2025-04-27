@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="navbar-content">
+    <div class="navbar-logo">
+      <!-- You can add a logo or site name here if desired -->
+    </div>
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="side-menu" [class.open]="menuOpen">
+    <button class="close-btn" (click)="toggleMenu()" aria-label="Close menu">&times;</button>
+    <ul>
+      <li><a href="#home" (click)="toggleMenu()">Home</a></li>
+      <li><a href="#menu" (click)="toggleMenu()">Menu</a></li>
+      <li><a href="#order" (click)="toggleMenu()">Order</a></li>
+      <li><a href="#gallery" (click)="toggleMenu()">Gallery</a></li>
+      <li><a href="#locations" (click)="toggleMenu()">Locations</a></li>
+      <li><a href="#contact" (click)="toggleMenu()">Contact</a></li>
+    </ul>
+  </div>
+  <div class="side-menu-backdrop" *ngIf="menuOpen" (click)="toggleMenu()"></div>
+</nav>

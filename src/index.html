@@ -2,10 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Thecoffeetable</title>
+  <title>The Coffee Table</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/images/transparentlogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            coffee: {
+              dark: '#2C1810',
+              light: '#D3B48C',
+              medium: '#8B4513',
+              accent: '#A0522D',
+            }
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body>
   <app-root></app-root>

@@ -1,0 +1,118 @@
+/* Navbar container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  background: transparent;
+  pointer-events: none;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 2.2em 3em 0.5em 3em;
+  pointer-events: auto;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  box-shadow: none;
+  cursor: pointer;
+  z-index: 102;
+  transition: background 0.2s;
+  pointer-events: auto;
+}
+.hamburger:hover, .hamburger:focus {
+  background: rgba(211, 180, 140, 0.10);
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  margin: 3px 0;
+  background: #A88B6A;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* Side menu styles */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 24px rgba(211, 180, 140, 0.10);
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2.5em 2em 2em 2em;
+  transition: left 0.35s cubic-bezier(0.77,0,0.18,1);
+  pointer-events: auto;
+}
+.side-menu.open {
+  left: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 2.2em;
+  color: #A88B6A;
+  align-self: flex-end;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-btn:hover, .close-btn:focus {
+  color: #7C5C36;
+}
+
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.side-menu li {
+  margin-bottom: 1.5em;
+}
+.side-menu a {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #7C5C36;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+.side-menu a:hover, .side-menu a:focus {
+  color: #D3B48C;
+}
+
+/* Backdrop for menu */
+.side-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(124, 92, 54, 0.18);
+  z-index: 105;
+  pointer-events: auto;
+  transition: background 0.2s;
+}
