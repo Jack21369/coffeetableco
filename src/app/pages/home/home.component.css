@@ -1,5 +1,17 @@
+html, body {
+    min-height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(120deg, #e6d3b8 0%, #f3e3c3 40%, #b08a5a 100%);
+    /* Darker, richer multi-brown gradient */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
 .landing-page {
-    background-color: #fdfaf6; /* Even lighter beige base */
+    background: transparent;
     position: relative;
     overflow: hidden;
     font-family: 'Jost', sans-serif;
@@ -7,7 +19,7 @@
 
 /* Ambient lighting effects */
 .ambient-lighting {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 1;
     background: radial-gradient(circle at 0% 0%, 
@@ -19,6 +31,7 @@
         transparent 60%
     );
     animation: ambientPulse 8s ease-in-out infinite;
+    pointer-events: none;
 }
 
 .light-spot {
@@ -31,7 +44,7 @@
 .light-spot:nth-child(1) {
     width: 600px; /* Increased size */
     height: 600px;
-    background: rgba(211, 180, 140, 0.35);
+    background: rgba(255, 166, 0, 0.105) ; /* Brighter green */
     top: -20%;
     left: -20%;
     animation-delay: 0s;
@@ -40,7 +53,7 @@
 .light-spot:nth-child(2) {
     width: 550px; /* Increased size */
     height: 550px;
-    background: rgba(255, 165, 0, 0.3);
+    /* background: rgba(114, 255, 140, 0.35); */
     bottom: -20%;
     right: -20%;
     animation-delay: -4s;
@@ -71,7 +84,7 @@
     font-family: 'Dancing Script', cursive;
     font-size: 1.6vw;
     font-weight: 700;
-    color: #A88B6A;
+    color: #5C4321;
     letter-spacing: 0.08em;
     flex: 1;
     line-height: 1.1;
@@ -88,8 +101,8 @@
 .title-main {
     font-family: 'Jost', sans-serif;
     font-size: 4.8vw;
-    font-weight: 800;
-    color: #7C5C36;
+    font-weight: 700;
+    color: #5C4321;
     letter-spacing: 0.08em;
     text-align: center;
     width: 100%;
@@ -103,17 +116,17 @@
     font-size: 4.8vw;
     font-weight: 800;
     font-family: 'Jost', sans-serif;
-    color: #7C5C36;
+    color: #5C4321;
     margin-bottom: 0.5em;
     letter-spacing: 0.04em;
     text-shadow: 0 2px 16px rgba(211, 180, 140, 0.10);
 }
 
 .subtitle-text {
-    font-size: 1.8vw;
-    color: #A88B6A;
-    font-weight: 400;
-    margin: 2.2em 0 0 0;
+    font-size: 1.6vw;
+    color: #5C4321;
+    font-weight: 300;
+    margin: 1.25em 0 0 0;
     line-height: 1.5;
     max-width: 90%;
 }
@@ -121,11 +134,11 @@
 /* Logo container styling */
 .logo-container {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 17%;
+    right: 8%;
     width: 50%;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
     z-index: 2;
     margin: 0;
     padding: 0;
@@ -137,17 +150,6 @@
     right: -15%;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    background: linear-gradient(
-        135deg,
-        rgba(253, 250, 246, 0.98) 0%,  /* Lighter beige */
-        rgba(253, 250, 246, 0.92) 50%,  /* Slightly darker beige */
-        rgba(253, 250, 246, 0.88) 100%  /* Even slightly darker beige */
-    );
-    box-shadow: 
-        0 0 50px rgba(211, 180, 140, 0.3),
-        inset 0 0 30px rgba(211, 180, 140, 0.1),
-        0 0 0 1px rgba(211, 180, 140, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -156,38 +158,10 @@
     padding: 0;
     overflow: hidden;
     backdrop-filter: blur(5px);
-}
-
-.logo-circle::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle at 30% 30%,
-        rgba(253, 250, 246, 0.3) 0%,  /* Lighter beige highlight */
-        transparent 60%
-    );
-    pointer-events: none;
-}
-
-.logo-circle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    background: radial-gradient(
-        circle at 70% 70%,
-        rgba(211, 180, 140, 0.1) 0%,
-        transparent 60%
-    );
-    pointer-events: none;
+    background-image: url('/assets/images/coffeebean.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .curved-text-svg {
@@ -278,7 +252,7 @@
     margin: 0;
     font-size: 300px;
     height: auto;
-    color: rgba(211, 180, 140, 0.2); /* Light coffee brown with opacity */
+    color: #5C4321; /* Light coffee brown with opacity */
     line-height: 0.5;
     font-family: monospace;
 }
@@ -370,25 +344,25 @@
 }
 
 .primary-btn {
-    background: #A88B6A;
+    background: #8B6B3A;
     color: #fff;
     box-shadow: 0 4px 24px rgba(211, 180, 140, 0.18);
 }
 .primary-btn:hover, .primary-btn:focus {
-    background: #7C5C36;
+    background: #5C4321;
     color: #fff;
     transform: translateY(-2px) scale(1.04);
 }
 
 .secondary-btn {
     background: #fff;
-    color: #A88B6A;
-    border: 2px solid #D3B48C;
+    color: #8B6B3A;
+    border: 2px solid #B08A5A;
 }
 .secondary-btn:hover, .secondary-btn:focus {
-    background: #FDF6ED;
-    color: #7C5C36;
-    border-color: #A88B6A;
+    background: #F3E3C3;
+    color: #5C4321;
+    border-color: #8B6B3A;
     transform: translateY(-2px) scale(1.04);
 }
 
@@ -398,7 +372,7 @@
     height: 0.38em;
     margin: 0.2em 0 0.2em 0;
     border-radius: 2em;
-    background: linear-gradient(90deg, #7C5C36 0%, #A88B6A 40%, #D3B48C 80%, #F3E3C3 100%);
+    background: linear-gradient(90deg, #b98035 0%, #b18b52 40%, #B08A5A 80%, #e9a442 100%);
     box-shadow: 0 2px 12px rgba(211, 180, 140, 0.10);
     transition: none;
     transform: scaleX(0);
@@ -429,7 +403,23 @@
     font-size: 1.8vw;
     font-family: 'Dancing Script', cursive;
     font-weight: 700;
-    color: #A88B6A;
+    color: #5C4321;
     letter-spacing: 0.02em;
     text-align: right;
+}
+
+.top-logo {
+    position: absolute;
+    top: 2%;
+    left: 10%;
+    transform: translateX(-50%);
+    z-index: 4;
+    width: 80px;
+    height: auto;
+}
+
+.logo-image {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }

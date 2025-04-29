@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 44px;
   height: 44px;
   background: transparent;
@@ -33,18 +33,54 @@
   z-index: 102;
   transition: background 0.2s;
   pointer-events: auto;
+  position: relative;
+  padding-left: 11px;
 }
 .hamburger:hover, .hamburger:focus {
   background: rgba(211, 180, 140, 0.10);
 }
 .hamburger span {
   display: block;
-  width: 22px;
   height: 3px;
-  margin: 3px 0;
-  background: #A88B6A;
+  background: #8B6B3A;
   border-radius: 2px;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.77,0,0.18,1);
+  position: relative;
+  margin: 3px 0;
+}
+
+.hamburger span:nth-child(1) {
+  width: 22px;
+}
+
+.hamburger span:nth-child(2) {
+  width: 16px;
+}
+
+.hamburger span:nth-child(3) {
+  width: 10px;
+}
+
+/* Animation when menu is open */
+.side-menu.open ~ .navbar-content .hamburger span,
+.menuOpen .hamburger span {
+  width: 22px !important;
+}
+
+/* Staggered animation when menu is open */
+.menuOpen .hamburger span:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+  transition-delay: 0.1s;
+}
+
+.menuOpen .hamburger span:nth-child(2) {
+  transform: translateY(0) rotate(-45deg);
+  transition-delay: 0.2s;
+}
+
+.menuOpen .hamburger span:nth-child(3) {
+  transform: translateY(0) rotate(45deg);
+  transition-delay: 0.3s;
 }
 
 /* Side menu styles */
