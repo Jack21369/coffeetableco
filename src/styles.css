@@ -1,19 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap');
 
 /* Global styles */
 :root {
-  --retro-header-font: 'Bungee Outline', cursive;
+  --primary-font: 'Jost', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--retro-header-font);
+  font-family: var(--primary-font);
   color: #5D3FD3; /* Purple color similar to the image */
   letter-spacing: 2px;
 }
 
 .retro-text {
-  font-family: var(--retro-header-font);
+  font-family: var(--primary-font);
   color: #5D3FD3;
   letter-spacing: 2px;
 }

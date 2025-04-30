@@ -1,0 +1,50 @@
+<div class="menu-item" [class.flipped]="isFlipped" (click)="toggleFlip()">
+    <div class="card-inner">
+        <!-- Front of card -->
+        <div class="card-front">
+            <div class="image-container">
+                <img [src]="item.imageUrl" [alt]="item.name" class="menu-image">
+            </div>
+            
+            <div class="content-container">
+                <div class="item-details">
+                    <h3 class="item-name">{{ item.name }}</h3>
+                    <p class="item-price">${{ item.price }}</p>
+                </div>
+                
+                <!-- Tags section -->
+                <div class="tags-container">
+                    <span class="tag">
+                        <span class="dot">•</span>
+                        <span class="tag-text">{{ item.category }}</span>
+                    </span>
+                    <span class="tag recommended" *ngIf="item.isRecommended">
+                        <span class="dot">•</span>
+                        <span class="tag-text">RECOMMENDED</span>
+                    </span>
+                </div>
+                
+                <!-- Arrow icon -->
+                <div class="arrow-icon">↗</div>
+            </div>
+        </div>
+
+        <!-- Back of card -->
+        <div class="card-back">
+            <div class="back-content">
+                <h3 class="back-title">{{ item.name }}</h3>
+                
+                <!-- Tags section -->
+                <div class="back-tags-container">
+                    <span class="tag">
+                        <span class="dot">•</span>
+                        <span class="tag-text">{{ item.category }}</span>
+                    </span>
+                </div>
+                
+                <p class="back-description">{{ item.description }}</p>
+                <p class="back-price">${{ item.price }}</p>
+            </div>
+        </div>
+    </div>
+</div>

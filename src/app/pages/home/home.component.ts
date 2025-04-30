@@ -1,25 +1,58 @@
-import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
+import { Component, PLATFORM_ID, Inject } from '@angular/core';
 import { Application } from '@splinetool/runtime';
-import { CommonModule } from '@angular/common';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { ItemCardComponent } from '../../components/item-card/item-card.component';
+import { RouterModule, Router } from '@angular/router';
+
+interface MenuItem {
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  category: string;
+}
 
 @Component({
  selector: 'app-home',
  standalone: true,
- imports: [CommonModule],
+ imports: [CommonModule, ItemCardComponent, RouterModule],
  templateUrl: './home.component.html',
  styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
  private spline: Application | null = null;
 
- constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
-
- scrollToMenu() {
-   const menuSection = document.getElementById('menu');
-   if (menuSection) {
-     menuSection.scrollIntoView({ behavior: 'smooth' });
+ featuredItems: MenuItem[] = [
+   {
+     name: 'Encore Espresso',
+     description: 'Double shot espresso with a hint of earl grey, perfectly balanced for a sophisticated taste.',
+     price: 5.50,
+     imageUrl: '/assets/images/latte.jpeg',
+     category: 'CLASSICS'
+   },
+   {
+     name: 'Matcha Melody',
+     description: 'Premium grade matcha green tea topped with our signature sweet cream cold foam.',
+     price: 5.50,
+     imageUrl: '/assets/images/latte.jpeg',
+     category: 'NON ESPRESSO'
+   },
+   {
+     name: 'Camo Thai',
+     description: 'Rich Thai tea blend with a mesmerizing sweet cream swirl pattern.',
+     price: 5.95,
+     imageUrl: '/assets/images/latte.jpeg',
+     category: 'SPECIALS'
    }
+ ];
+
+ constructor(
+   @Inject(PLATFORM_ID) private platformId: Object,
+   private router: Router
+ ) {}
+
+ navigateToMenu() {
+   this.router.navigate(['/menu']);
  }
 
  ngOnInit(): void {

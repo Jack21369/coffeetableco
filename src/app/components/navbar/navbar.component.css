@@ -3,10 +3,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  z-index: 100;
-  background: transparent;
-  pointer-events: none;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  backdrop-filter: blur(0px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* Mobile-only translucent effect */
+@media (max-width: 768px) {
+  .navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
 }
 
 .navbar-content {
@@ -14,7 +28,7 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  padding: 2.2em 3em 0.5em 3em;
+  padding-left: 2em;
   pointer-events: auto;
 }
 
@@ -130,14 +144,14 @@
 .side-menu a {
   font-family: 'Jost', sans-serif;
   font-size: 1.3em;
-  font-weight: 700;
-  color: #7C5C36;
+  font-weight: 400;
+  color: #2C1810;
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
 .side-menu a:hover, .side-menu a:focus {
-  color: #D3B48C;
+  color: #8B6B3A;
 }
 
 /* Backdrop for menu */

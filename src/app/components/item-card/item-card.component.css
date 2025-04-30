@@ -1,0 +1,277 @@
+.menu-item {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 480px;
+    perspective: 1500px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: translateY(-8px);
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.menu-item.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: white;
+    overflow: hidden;
+}
+
+.card-back {
+    background: #2C1810;
+    transform: rotateY(180deg);
+    padding: 2.5rem;
+    color: white;
+}
+
+.back-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.back-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: white;
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.back-tags-container {
+    margin-bottom: 2rem;
+}
+
+.back-tags-container .tag {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.back-tags-container .dot {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.back-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    font-weight: 300;
+}
+
+.back-price {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    letter-spacing: 0.02em;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+}
+
+.menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-container {
+    padding: 1rem 1.25rem;
+    background: white;
+    height: 25%;
+    position: relative;
+}
+
+.item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+}
+
+.item-name {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #2C1810;
+    margin: 0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.item-price {
+    font-size: 0.875rem;
+    color: #2C1810;
+    margin: 0;
+}
+
+.tags-container {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.625rem;
+    font-weight: 400;
+    color: #2C1810;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tag.recommended {
+    opacity: 0.9;
+}
+
+.dot {
+    font-size: 1.2em;
+    line-height: 0;
+    position: relative;
+    top: -1px;
+}
+
+.tag-text {
+    position: relative;
+    top: 1px;
+}
+
+.view-description,
+.underline-animation {
+    display: none;
+}
+
+/* Back card styling */
+.back-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.back-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+}
+
+.back-price {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: white;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+@media (min-width: 640px) {
+    .menu-item {
+        max-width: 100%;
+    }
+}
+
+/* Image container */
+.aspect-\[4\/5\] {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+}
+
+.aspect-\[4\/5\] img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+/* Text content */
+.text-content {
+    padding: 1.5rem;
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* View Description link */
+.view-description-link {
+    margin-top: auto;
+    position: relative;
+    cursor: pointer;
+}
+
+.view-description-link span {
+    display: inline-block;
+    position: relative;
+}
+
+.link-underline {
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #8B6B3A;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.view-description-link:hover .link-underline {
+    transform: scaleX(1);
+}
+
+/* Price alignment */
+.price {
+    white-space: nowrap;
+    margin-left: 1rem;
+    color: #8B6B3A;
+}
+
+.arrow-icon {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.25rem;
+    font-size: 1.25rem;
+    color: #2C1810;
+    opacity: 0.7;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-item:hover .arrow-icon {
+    transform: rotate(45deg) translate(2px, -2px);
+    opacity: 1;
+}
