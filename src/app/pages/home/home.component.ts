@@ -3,14 +3,7 @@ import { Application } from '@splinetool/runtime';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ItemCardComponent } from '../../components/item-card/item-card.component';
 import { RouterModule, Router } from '@angular/router';
-
-interface MenuItem {
-  name: string;
-  description: string;
-  price: number;
-  imageUrl: string;
-  category: string;
-}
+import { MenuItem } from '../../shared/types/menu.types';
 
 @Component({
  selector: 'app-home',
@@ -28,21 +21,21 @@ export class HomeComponent {
      description: 'Double shot espresso with a hint of earl grey, perfectly balanced for a sophisticated taste.',
      price: 5.50,
      imageUrl: '/assets/images/latte.jpeg',
-     category: 'CLASSICS'
+     category: 'Classics'
    },
    {
      name: 'Matcha Melody',
      description: 'Premium grade matcha green tea topped with our signature sweet cream cold foam.',
      price: 5.50,
      imageUrl: '/assets/images/latte.jpeg',
-     category: 'NON ESPRESSO'
+     category: 'Non-Espresso'
    },
    {
      name: 'Camo Thai',
      description: 'Rich Thai tea blend with a mesmerizing sweet cream swirl pattern.',
      price: 5.95,
      imageUrl: '/assets/images/latte.jpeg',
-     category: 'SPECIALS'
+     category: 'Specials'
    }
  ];
 

@@ -3,19 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ItemCardComponent } from '../../components/item-card/item-card.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
-
-type DrinkCategory = 'Specials' | 'Classics' | 'Non-Espresso';
-
-interface MenuItem {
-  name: string;
-  category: DrinkCategory;
-  description: string;
-  ingredients: string;
-  price: number;
-  imageUrl: string;
-  index: string;
-  isRecommended?: boolean;
-}
+import { MenuItem, DrinkCategory } from '../../shared/types/menu.types';
 
 @Component({
   selector: 'app-menu',
