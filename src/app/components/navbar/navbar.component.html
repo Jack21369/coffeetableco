@@ -12,12 +12,10 @@
   <div class="side-menu" [class.open]="menuOpen">
     <button class="close-btn" (click)="toggleMenu()" aria-label="Close menu">&times;</button>
     <ul>
-      <li><a href="#home" (click)="toggleMenu()">Home</a></li>
-      <li><a href="#menu" (click)="toggleMenu()">Menu</a></li>
-      <li><a href="#order" (click)="toggleMenu()">Order</a></li>
-      <li><a href="#gallery" (click)="toggleMenu()">Gallery</a></li>
-      <li><a href="#locations" (click)="toggleMenu()">Locations</a></li>
-      <li><a href="#contact" (click)="toggleMenu()">Contact</a></li>
+      <li><a routerLink="/" (click)="toggleMenu()">Home</a></li>
+      <li><a routerLink="/menu" (click)="toggleMenu()">Menu</a></li>
+      <li><a href="https://www.thecoffeetable.co/" target="_blank" (click)="toggleMenu()">Order</a></li>
+      <li><a routerLink="/services" (click)="toggleMenu()">Services</a></li>
     </ul>
   </div>
   <div class="side-menu-backdrop" *ngIf="menuOpen" (click)="toggleMenu()"></div>

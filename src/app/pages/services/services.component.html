@@ -1,0 +1,149 @@
+<!-- Navigation Bar -->
+<app-navbar></app-navbar>
+
+<!-- Main Content -->
+<main class="relative min-h-screen overflow-hidden">
+    <a routerLink="/" class="absolute top-8 left-1/2 -translate-x-1/2 z-10 cursor-pointer">
+        <img src="assets/images/logo.svg" alt="Coffee Table Logo" class="h-32 md:h-32">
+    </a>
+    
+    <!-- Ambient Lighting -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <!-- Primary light spots -->
+        <div class="absolute top-[-20%] left-[-10%] w-[70%] h-[70%] rounded-full bg-[#2C1810]/5 blur-[100px]"></div>
+        <div class="absolute top-[30%] right-[-20%] w-[80%] h-[80%] rounded-full bg-[#8B6B3A]/5 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] left-[20%] w-[60%] h-[60%] rounded-full bg-[#2C1810]/5 blur-[100px]"></div>
+        
+        <!-- Secondary subtle spots -->
+        <div class="absolute top-[10%] right-[10%] w-[40%] h-[40%] rounded-full bg-[#8B6B3A]/3 blur-[150px]"></div>
+        <div class="absolute bottom-[20%] right-[30%] w-[50%] h-[50%] rounded-full bg-[#2C1810]/3 blur-[150px]"></div>
+    </div>
+
+    <!-- Services Header -->
+    <div class="relative pt-48 pb-8 md:pt-32 md:pb-16 px-[5%] md:px-[10%]">
+        <h1 class="text-[8vw] md:text-[4vw] font-bold text-[#2C1810] leading-none tracking-tighter mb-8 md:mb-12">SERVICES</h1>
+    </div>
+
+    <!-- Services Content -->
+    <div class="relative px-[5%] md:px-[10%] pb-24">
+        <div class="max-w-[1800px] mx-auto">
+            <!-- Contact Form Section -->
+            <div class="mb-16">
+                <h2 class="text-2xl font-medium text-[#2C1810] mb-8">CONTACT US</h2>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="max-w-2xl">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-[#2C1810] mb-2">Name</label>
+                            <input type="text" id="name" formControlName="name" 
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-[#2C1810] mb-2">Email</label>
+                            <input type="email" id="email" formControlName="email" 
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-[#2C1810] mb-2">Phone</label>
+                            <input type="tel" id="phone" formControlName="phone" 
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                        </div>
+                        <div>
+                            <label for="inquiryType" class="block text-sm font-medium text-[#2C1810] mb-2">Inquiry Type</label>
+                            <select id="inquiryType" formControlName="inquiryType" 
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                <option *ngFor="let type of inquiryTypes" [value]="type">{{type}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-[#2C1810] mb-2">Message</label>
+                        <textarea id="message" formControlName="message" rows="4" 
+                            class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]"></textarea>
+                    </div>
+                    <button type="submit" 
+                        class="bg-[#8B6B3A] hover:bg-[#7C5C36] text-white px-8 py-4 rounded-full text-sm font-light tracking-wider transition-colors duration-300 shadow-lg hover:shadow-xl">
+                        Submit Inquiry
+                    </button>
+                </form>
+            </div>
+
+            <!-- Location Section -->
+            <h2 class="text-[8vw] md:text-[4vw] font-bold text-[#2C1810] leading-none tracking-tighter mb-8">VISIT US</h2>
+            
+            <div class="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden max-w-[1800px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 min-h-[450px]">
+                    <!-- Map -->
+                    <div class="p-6 lg:p-8">
+                        <div class="w-full h-full rounded-lg overflow-hidden border-2 border-[#2C1810]/10">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3290.201123456789!2d-118.5371234!3d34.3791234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2871234567890%3A0x1234567890abcdef!2s24254%20Main%20St%2C%20Newhall%2C%20CA%2091321!5e0!3m2!1sen!2sus!4v1234567890!5m2!1sen!2sus"
+                                width="100%" 
+                                height="100%" 
+                                style="border:0; min-height: 400px;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                class="rounded-lg">
+                            </iframe>
+                        </div>
+                    </div>
+
+                    <!-- Information -->
+                    <div class="p-8 lg:p-10">
+                        <h3 class="text-2xl font-bold text-[#2C1810] mb-2">THE COFFEE TABLE</h3>
+                        <p class="text-base text-[#2C1810]/50 mb-8">NEWHALL, CA</p>
+
+                        <!-- Info Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
+                            <!-- Address -->
+                            <div>
+                                <h4 class="text-base font-semibold text-[#8B6B3A] mb-3">ADDRESS</h4>
+                                <p class="text-sm text-[#2C1810]/60">24254 Main St</p>
+                                <p class="text-sm text-[#2C1810]/60">Newhall, CA 91321</p>
+                            </div>
+
+                            <!-- Hours -->
+                            <div>
+                                <h4 class="text-base font-semibold text-[#8B6B3A] mb-3">HOURS</h4>
+                                <div class="grid grid-cols-[80px_1fr] gap-y-1.5">
+                                    <span class="text-sm text-[#2C1810]/60">MON-FRI:</span>
+                                    <span class="text-sm text-[#2C1810]/60">7:00AM - 7:00PM</span>
+                                    <span class="text-sm text-[#2C1810]/60">SAT:</span>
+                                    <span class="text-sm text-[#2C1810]/60">8:00AM - 8:00PM</span>
+                                    <span class="text-sm text-[#2C1810]/60">SUN:</span>
+                                    <span class="text-sm text-[#2C1810]/60">8:00AM - 6:00PM</span>
+                                </div>
+                            </div>
+
+                            <!-- Contact and Maps Section -->
+                            <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 mt-4">
+                                <!-- Contacts -->
+                                <div>
+                                    <h4 class="text-base font-semibold text-[#8B6B3A] mb-3">CONTACTS</h4>
+                                    <p class="text-sm text-[#2C1810]/60 mb-1.5">(661) 123-4567</p>
+                                    <p class="text-sm text-[#2C1810]/60">info&#64;thecoffeetable.co</p>
+                                </div>
+
+                                <!-- Map Links -->
+                                <div class="flex flex-col sm:justify-end gap-4">
+                                    <a href="https://maps.google.com/?q=24254+Main+St,+Newhall,+CA+91321" 
+                                       target="_blank"
+                                       class="inline-flex items-center justify-center px-5 py-2.5 bg-[#2C1810] text-white rounded-full text-sm font-light tracking-wider transition-colors duration-300 hover:bg-[#1C0F0A]">
+                                        <img src="assets/images/google-maps.svg" alt="Google Maps" class="w-4 h-4 mr-2">
+                                        GOOGLE MAPS
+                                    </a>
+                                    <a href="https://maps.apple.com/?q=24254+Main+St,+Newhall,+CA+91321" 
+                                       target="_blank"
+                                       class="inline-flex items-center justify-center px-5 py-2.5 bg-[#2C1810] text-white rounded-full text-sm font-light tracking-wider transition-colors duration-300 hover:bg-[#1C0F0A]">
+                                        <img src="assets/images/apple-maps.svg" alt="Apple Maps" class="w-4 h-4 mr-2">
+                                        APPLE MAPS
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
