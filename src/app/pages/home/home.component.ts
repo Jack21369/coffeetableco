@@ -27,7 +27,7 @@ export class HomeComponent {
      name: 'Matcha Melody',
      description: 'A sweetened matcha topped with sweet cream cold foam. Fruity pebble topping recommended',
      price: 6.50,
-     imageUrl: 'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=1200',
+     imageUrl: 'https://images.unsplash.com/photo-1545606159-a5f81fd3a798?q=80&w=1200',
      category: 'Non-Espresso'
    },
    {

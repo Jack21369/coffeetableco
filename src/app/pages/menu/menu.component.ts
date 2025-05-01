@@ -34,7 +34,7 @@ export class MenuComponent implements OnInit {
       description: 'A sweetened matcha topped with sweet cream cold foam. Fruity pebble topping recommended',
       ingredients: 'Matcha • Sweet Cream Cold Foam • Fruity Pebbles',
       price: 6.50,
-      imageUrl: 'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=1200',
+      imageUrl: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=1200',
       index: '02',
       isRecommended: true
     },
