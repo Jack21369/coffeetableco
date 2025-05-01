@@ -20,92 +20,119 @@ export class MenuComponent implements OnInit {
   signatureItems: MenuItem[] = [
     {
       name: 'Encore Espresso',
-      category: 'Classics',
-      description: 'Double shot espresso with a hint of earl grey, perfectly balanced for a sophisticated taste.',
-      ingredients: 'Double Shot • Earl Grey',
+      category: 'Specials',
+      description: 'Our smooth earl grey syrup with espresso and milk.',
+      ingredients: 'Earl Grey Syrup • Espresso • Milk',
       price: 5.50,
-      imageUrl: '/assets/images/latte.jpeg',
-      index: '01'
+      imageUrl: 'https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?q=80&w=1200',
+      index: '01',
+      isRecommended: true
     },
     {
-      name: 'Caramel Cloud',
-      category: 'Specials',
-      description: 'Our signature espresso with house-made caramel and velvety steamed milk.',
-      ingredients: 'Espresso • Caramel • Milk',
-      price: 6.00,
-      imageUrl: '/assets/images/latte.jpeg',
+      name: 'Matcha Melody',
+      category: 'Non-Espresso',
+      description: 'A sweetened matcha topped with sweet cream cold foam. Fruity pebble topping recommended',
+      ingredients: 'Matcha • Sweet Cream Cold Foam • Fruity Pebbles',
+      price: 6.50,
+      imageUrl: 'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=1200',
       index: '02',
       isRecommended: true
     },
     {
       name: 'Hazelnut Harmony',
-      category: 'Classics',
-      description: 'Rich hazelnut-infused espresso with a touch of vanilla and cinnamon.',
-      ingredients: 'Espresso • Hazelnut • Vanilla',
-      price: 5.95,
-      imageUrl: '/assets/images/latte.jpeg',
+      category: 'Specials',
+      description: 'A hazelnut latte topped with sweet cream cold foam. Graham cracker topping recommended',
+      ingredients: 'Hazelnut • Espresso • Sweet Cream Cold Foam • Graham Cracker',
+      price: 6.50,
+      imageUrl: 'https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?q=80&w=1200',
       index: '03'
     }
   ];
 
   seasonalItems: MenuItem[] = [
     {
-      name: 'Matcha Melody',
-      category: 'Non-Espresso',
-      description: 'Premium grade matcha green tea topped with our signature sweet cream cold foam.',
-      ingredients: 'Matcha • Sweet Cream',
-      price: 5.50,
-      imageUrl: '/assets/images/latte.jpeg',
-      index: '04',
-      isRecommended: true
+      name: 'White Chocolate Mocha Latte',
+      category: 'Specials',
+      description: 'White chocolate mocha sauce with espresso and milk',
+      ingredients: 'White Chocolate • Espresso • Milk',
+      price: 5.80,
+      imageUrl: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1200',
+      index: '04'
     },
     {
-      name: 'Pumpkin Spice Dream',
-      category: 'Specials',
-      description: 'Warm pumpkin spice latte with real pumpkin puree and a hint of cinnamon.',
-      ingredients: 'Pumpkin • Spices • Espresso',
-      price: 6.25,
-      imageUrl: '/assets/images/latte.jpeg',
+      name: 'Autumn Blend Tea',
+      category: 'Non-Espresso',
+      description: 'A warming blend of autumn spices and premium tea',
+      ingredients: 'Autumn Blend Tea',
+      price: 3.50,
+      imageUrl: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=1200',
       index: '05'
     },
     {
-      name: 'Peppermint Mocha',
-      category: 'Specials',
-      description: 'Rich chocolate mocha with refreshing peppermint and whipped cream.',
-      ingredients: 'Chocolate • Peppermint • Espresso',
-      price: 6.00,
-      imageUrl: '/assets/images/latte.jpeg',
+      name: 'Ginger Turmeric Tea',
+      category: 'Non-Espresso',
+      description: 'A soothing blend of ginger and turmeric',
+      ingredients: 'Ginger • Turmeric • Tea',
+      price: 3.50,
+      imageUrl: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1200',
       index: '06'
     }
   ];
 
   popularItems: MenuItem[] = [
     {
-      name: 'Camo Thai',
-      category: 'Non-Espresso',
-      description: 'Rich Thai tea blend with a mesmerizing sweet cream swirl pattern.',
-      ingredients: 'Thai Tea • Sweet Cream',
-      price: 5.95,
-      imageUrl: '/assets/images/latte.jpeg',
+      name: 'Cafe Latte',
+      category: 'Classics',
+      description: 'Espresso shot and milk. Optional: Sweetener or cold foam',
+      ingredients: 'Espresso • Milk',
+      price: 5.00,
+      imageUrl: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1200',
       index: '07'
     },
     {
-      name: 'Classic Latte',
+      name: 'Cappuccino',
       category: 'Classics',
-      description: 'Smooth espresso with steamed milk and a delicate layer of foam.',
-      ingredients: 'Espresso • Milk',
-      price: 4.95,
-      imageUrl: '/assets/images/latte.jpeg',
+      description: 'Espresso topped with steamed milk and thick foam',
+      ingredients: 'Espresso • Steamed Milk • Foam',
+      price: 4.50,
+      imageUrl: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=1200',
       index: '08'
     },
     {
-      name: 'Iced Americano',
+      name: 'Americano',
       category: 'Classics',
-      description: 'Double shot of espresso over ice, perfect for hot days.',
-      ingredients: 'Espresso • Ice',
-      price: 4.50,
-      imageUrl: '/assets/images/latte.jpeg',
+      description: 'Smooth espresso with iced/hot water',
+      ingredients: 'Espresso • Water',
+      price: 3.00,
+      imageUrl: 'https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1200',
       index: '09'
+    },
+    {
+      name: 'DRIP Coffee',
+      category: 'Classics',
+      description: 'Bold, classic brewed coffee',
+      ingredients: 'Fresh Ground Coffee',
+      price: 3.50,
+      imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200',
+      index: '10'
+    },
+    {
+      name: 'Espresso',
+      category: 'Classics',
+      description: 'Double Shot of Espresso',
+      ingredients: 'Double Shot Espresso',
+      price: 3.00,
+      imageUrl: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?q=80&w=1200',
+      index: '11'
+    },
+    {
+      name: 'Groundwork Coffee Beans',
+      category: 'Classics',
+      description: 'Organic Bitches Brew- Notes of Dark Chocolate and Caramel- 12 oz',
+      ingredients: 'Organic Coffee Beans',
+      price: 16.00,
+      imageUrl: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=1200',
+      index: '12'
     }
   ];
 

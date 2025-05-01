@@ -18,23 +18,23 @@ export class HomeComponent {
  featuredItems: MenuItem[] = [
    {
      name: 'Encore Espresso',
-     description: 'Double shot espresso with a hint of earl grey, perfectly balanced for a sophisticated taste.',
+     description: 'Our smooth earl grey syrup with espresso and milk.',
      price: 5.50,
-     imageUrl: '/assets/images/latte.jpeg',
-     category: 'Classics'
+     imageUrl: 'https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?q=80&w=1200',
+     category: 'Specials'
    },
    {
      name: 'Matcha Melody',
-     description: 'Premium grade matcha green tea topped with our signature sweet cream cold foam.',
-     price: 5.50,
-     imageUrl: '/assets/images/latte.jpeg',
+     description: 'A sweetened matcha topped with sweet cream cold foam. Fruity pebble topping recommended',
+     price: 6.50,
+     imageUrl: 'https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=1200',
      category: 'Non-Espresso'
    },
    {
-     name: 'Camo Thai',
-     description: 'Rich Thai tea blend with a mesmerizing sweet cream swirl pattern.',
-     price: 5.95,
-     imageUrl: '/assets/images/latte.jpeg',
+     name: 'Hazelnut Harmony',
+     description: 'A hazelnut latte topped with sweet cream cold foam. Graham cracker topping recommended',
+     price: 6.50,
+     imageUrl: 'https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?q=80&w=1200',
      category: 'Specials'
    }
  ];
