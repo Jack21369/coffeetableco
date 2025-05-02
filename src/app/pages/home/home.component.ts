@@ -4,11 +4,13 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ItemCardComponent } from '../../components/item-card/item-card.component';
 import { RouterModule, Router } from '@angular/router';
 import { MenuItem } from '../../shared/types/menu.types';
+import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.component';
+import { SecondaryBtnComponent } from '../../components/secondary-btn/secondary-btn.component';
 
 @Component({
  selector: 'app-home',
  standalone: true,
- imports: [CommonModule, ItemCardComponent, RouterModule],
+ imports: [CommonModule, ItemCardComponent, RouterModule, PrimaryBtnComponent, SecondaryBtnComponent],
  templateUrl: './home.component.html',
  styleUrl: './home.component.css'
 })

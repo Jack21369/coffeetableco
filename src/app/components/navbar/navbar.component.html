@@ -17,12 +17,7 @@
       <li><a routerLink="/services" (click)="toggleMenu()" class="section-titles">Services</a></li>
     </ul>
     <div class="order-button-container">
-      <a href="https://www.thecoffeetable.co/" 
-         target="_blank" 
-         class="order-now-button"
-         (click)="toggleMenu()">
-        ORDER NOW
-      </a>
+      <app-primary-btn label="Order" href="https://www.thecoffeetable.co/" target="_blank" (click)="toggleMenu()"></app-primary-btn>
     </div>
   </div>
   <div class="side-menu-backdrop" *ngIf="menuOpen" (click)="toggleMenu()"></div>

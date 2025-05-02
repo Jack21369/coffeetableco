@@ -35,22 +35,22 @@
                         <div>
                             <label for="name" class="block text-sm font-medium text-[#2C1810] mb-2">Name</label>
                             <input type="text" id="name" formControlName="name" 
-                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
                         <div>
                             <label for="email" class="block text-sm font-medium text-[#2C1810] mb-2">Email</label>
                             <input type="email" id="email" formControlName="email" 
-                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-[#2C1810] mb-2">Phone</label>
                             <input type="tel" id="phone" formControlName="phone" 
-                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
                         <div>
                             <label for="inquiryType" class="block text-sm font-medium text-[#2C1810] mb-2">Inquiry Type</label>
                             <select id="inquiryType" formControlName="inquiryType" 
-                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                                 <option *ngFor="let type of inquiryTypes" [value]="type">{{type}}</option>
                             </select>
                         </div>
@@ -58,12 +58,9 @@
                     <div class="mb-6">
                         <label for="message" class="block text-sm font-medium text-[#2C1810] mb-2">Message</label>
                         <textarea id="message" formControlName="message" rows="4" 
-                            class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]"></textarea>
+                            class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]"></textarea>
                     </div>
-                    <button type="submit" 
-                        class="bg-[#8B6B3A] hover:bg-[#7C5C36] text-white px-8 py-4 rounded-full text-sm font-light tracking-wider transition-colors duration-300 shadow-lg hover:shadow-xl">
-                        Submit Inquiry
-                    </button>
+                    <app-primary-btn label="Submit" type="submit"></app-primary-btn>
                 </form>
             </div>
 
@@ -126,24 +123,26 @@
 
                                 <!-- Map Links -->
                                 <div class="flex flex-col sm:justify-end gap-4">
-                                    <a href="https://maps.google.com/?q=24254+Main+St,+Newhall,+CA+91321" 
-                                       target="_blank"
-                                       class="inline-flex items-center justify-center px-5 py-2.5 bg-[#2C1810] text-white rounded-full text-sm font-light tracking-wider transition-colors duration-300 hover:bg-[#1C0F0A]">
-                                        <img src="assets/images/google-maps.svg" alt="Google Maps" class="w-4 h-4 mr-2">
-                                        GOOGLE MAPS
-                                    </a>
-                                    <a href="https://maps.apple.com/?q=24254+Main+St,+Newhall,+CA+91321" 
-                                       target="_blank"
-                                       class="inline-flex items-center justify-center px-5 py-2.5 bg-[#2C1810] text-white rounded-full text-sm font-light tracking-wider transition-colors duration-300 hover:bg-[#1C0F0A]">
-                                        <img src="assets/images/apple-maps.svg" alt="Apple Maps" class="w-4 h-4 mr-2">
-                                        APPLE MAPS
-                                    </a>
+                                    <app-primary-btn label="Google Maps" href="https://maps.google.com/?q=24254+Main+St,+Newhall,+CA+91321" target="_blank">
+                                        <img src="assets/images/google-maps.svg" alt="Google Maps" class="w-4 h-4 mr-2" slot="icon">
+                                    </app-primary-btn>
+                                    <app-primary-btn label="Apple Maps" href="https://maps.apple.com/?q=24254+Main+St,+Newhall,+CA+91321" target="_blank">
+                                        <img src="assets/images/google-maps.svg" alt="Apple Maps" class="w-4 h-4 mr-2" slot="icon">
+                                    </app-primary-btn>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Fixed CTA Buttons -->
+    <div class="fixed bottom-0 left-0 right-0 z-50 px-3 py-2.5 sm:px-4 sm:py-3 bg-[#FAF6F1]/80 backdrop-blur-md border-t border-[#2C1810]/10">
+        <div class="max-w-[1800px] mx-auto flex gap-2 sm:gap-3 justify-center">
+            <app-primary-btn label="Order" routerLink="/order"></app-primary-btn>
+            <app-secondary-btn label="View" routerLink="/menu"></app-secondary-btn>
         </div>
     </div>
 </main>

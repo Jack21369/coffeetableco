@@ -1,0 +1,35 @@
+.secondary-btn-style {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #8B6B3A;
+  border: 2px solid #8B6B3A;
+  border-radius: 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 1.2vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  padding: 0.7em 1.8em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 16px rgba(211, 180, 140, 0.10);
+  outline: none;
+  text-decoration: none;
+}
+.secondary-btn-style:hover, .secondary-btn-style:focus {
+  background: #F3E3C3;
+  color: #5C4321;
+  border-color: #5C4321;
+  transform: translateY(-2px) scale(1.04);
+}
+
+@media (max-width: 600px) {
+  .secondary-btn-style {
+    font-size: 0.85rem;
+    padding: 0.6em 1.4em;
+    min-width: 80px;
+    min-height: 36px;
+  }
+}

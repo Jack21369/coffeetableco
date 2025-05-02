@@ -317,38 +317,54 @@ html, body {
 
 .cta-btn {
     font-family: 'Jost', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 1.2vw;
-    padding: 0.85em 2.2em;
+    padding: 1em 2.2em;
     border: none;
-    border-radius: 2em;
+    border-radius: 0;
     cursor: pointer;
     transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
     box-shadow: 0 2px 16px rgba(211, 180, 140, 0.10);
     outline: none;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
 }
 
 .primary-btn {
     background: #8B6B3A;
     color: #fff;
     box-shadow: 0 4px 24px rgba(211, 180, 140, 0.18);
+    border-radius: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 1.2vw;
+    padding: 1em 2.2em;
 }
 .primary-btn:hover, .primary-btn:focus {
     background: #5C4321;
     color: #fff;
     transform: translateY(-2px) scale(1.04);
+    border-radius: 0;
 }
 
 .secondary-btn {
     background: #fff;
     color: #8B6B3A;
     border: 2px solid #B08A5A;
+    border-radius: 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 1.2vw;
+    padding: 1em 2.2em;
 }
 .secondary-btn:hover, .secondary-btn:focus {
     background: #F3E3C3;
     color: #5C4321;
     border-color: #8B6B3A;
     transform: translateY(-2px) scale(1.04);
+    border-radius: 0;
 }
 
 .underline-animated {
@@ -575,6 +591,7 @@ html, body {
         max-width: 90%;
         top: 75%;
         z-index: 1;
+        gap: 0.5em;
     }
 
     .logo-container {
@@ -627,7 +644,8 @@ html, body {
 
     .subtitle-text {
         font-size: 4.2vw;
-        margin-top: 1rem;
+        margin-top: 0.4em;
+        margin-bottom: 0.6em;
     }
 
     .text-sm {
@@ -674,7 +692,7 @@ html, body {
     }
 
     .cta-buttons {
-        margin-top: 1.5rem;
+        margin-top: 0.6em;
     }
 
     .cta-btn {
@@ -714,6 +732,11 @@ html, body {
     .animate-width {
         height: 2.5px !important;
         opacity: 1;
+    }
+
+    .title-words {
+        gap: 0.1em;
+        margin-bottom: 0.2em;
     }
 }
 

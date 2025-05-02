@@ -4,11 +4,12 @@ import { RouterLink } from '@angular/router';
 import { ItemCardComponent } from '../../components/item-card/item-card.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { MenuItem, DrinkCategory } from '../../shared/types/menu.types';
+import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.component';
 
 @Component({
   selector: 'app-menu',
   standalone: true,
-  imports: [CommonModule, RouterLink, ItemCardComponent, NavbarComponent],
+  imports: [CommonModule, RouterLink, ItemCardComponent, NavbarComponent, PrimaryBtnComponent],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
 })

@@ -1,0 +1,17 @@
+<ng-container *ngIf="routerLink; else externalOrButton">
+  <a [routerLink]="routerLink" class="secondary-btn-style">
+    {{ label }}
+  </a>
+</ng-container>
+<ng-template #externalOrButton>
+  <ng-container *ngIf="href; else justButton">
+    <a [href]="href" [target]="target || '_blank'" rel="noopener" class="secondary-btn-style">
+      {{ label }}
+    </a>
+  </ng-container>
+  <ng-template #justButton>
+    <button [type]="type" class="secondary-btn-style">
+      {{ label }}
+    </button>
+  </ng-template>
+</ng-template>
