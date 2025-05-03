@@ -44,46 +44,6 @@
     </div>
 </section>
 
-<!-- Menu Showcase Section -->
-<section class="w-full min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
-    <div class="w-full max-w-[1800px] mx-auto relative z-10 px-[5%] md:px-[10%]">
-        <!-- Section label and title container -->
-        <div class="mb-16 md:mb-24">
-            <!-- Section label -->
-            <div class="overflow-hidden mb-4">
-                <span class="inline-block text-sm tracking-[0.3em] text-[#8B6B3A] uppercase fade-up-delay-1">Our Selection</span>
-            </div>
-
-            <!-- Bold title with animated lines -->
-            <div class="relative">
-                <div class="flex flex-col md:flex-row items-start md:items-baseline gap-2 md:gap-6">
-                    <h2 class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-2 text-[#2C1810]">FEATURED</h2>
-                    <span class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-3 text-[#5C4321]">DRINKS</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Dynamic grid layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12 relative">
-            <app-item-card
-                *ngFor="let item of featuredItems"
-                [item]="item">
-            </app-item-card>
-        </div>
-
-        <!-- View All Menu Link -->
-        <div class="mt-16 flex justify-center md:justify-end">
-            <a [routerLink]="['/menu']" class="group inline-flex items-center gap-3 md:gap-4 text-lg md:text-xl text-[#2C1810] font-medium tracking-wider fade-up-delay-4 hover:opacity-80 transition-opacity">
-                <span class="relative">
-                    VIEW FULL MENU
-                    <div class="absolute left-0 right-0 h-[2px] bg-[#2C1810] bottom-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-right"></div>
-                </span>
-                <span class="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-[#2C1810] inline-flex items-center justify-center transform group-hover:translate-x-2 transition-transform">
-                    <svg class="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14m-6-6l6 6-6 6" />
-                    </svg>
-                </span>
-            </a>
-        </div>
-    </div>
-</section>
+<!-- Import the new components -->
+<app-home-menu-preview></app-home-menu-preview>
+<app-home-service-preview></app-home-service-preview>

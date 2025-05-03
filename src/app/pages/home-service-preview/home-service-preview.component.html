@@ -1,0 +1,74 @@
+<section class="services-preview-section w-full min-h-screen flex relative overflow-hidden">
+  <div class="w-full max-w-[1800px] mx-auto relative z-10 px-[5%] md:px-[10%]">
+    <ng-container *ngIf="!(isMobile | async); else mobileServices">
+      <div class="services-left sticky-panel flex flex-col justify-center z-20">
+        <div class="services-title-vertical-container flex flex-col items-center w-full mb-8">
+          <h2 class="services-title-minimal mt-8 mb-8">Our Services</h2>
+          <div class="services-title-line-outer flex flex-col items-center" style="height: 2.5rem;">
+            <div class="services-title-line-anim"></div>
+          </div>
+        </div>
+        <div class="services-categories flex flex-col gap-6 mb-8">
+          <span *ngFor="let service of services; let i = index" 
+                [class.active-category]="activeServiceIndex === i"
+                class="category-label font-semibold text-lg uppercase transition-opacity duration-300 opacity-50"
+                (click)="scrollToService(i)"
+                style="cursor: pointer;">
+            {{ service.category }}
+          </span>
+        </div>
+        <app-primary-btn label="BOOK NOW" [routerLink]="['/services']"></app-primary-btn>
+      </div>
+      <div class="services-right w-[68vw] relative z-10">
+        <div class="services-scroll-container relative">
+          <ng-container *ngFor="let service of services; let i = index">
+            <div [id]="'service-anchor-' + i" style="height: 1px; width: 100%;"></div>
+            <div class="service-section"
+                 [ngStyle]="{'z-index': i + 1}"
+                 [id]="'service-section-' + i">
+              <div class="service-container w-full max-w-3xl mx-auto">
+                <img [src]="service.imageUrl" alt="{{ service.title }}" class="service-image w-full h-[28vh] object-cover mb-6 border-none" />
+                <div class="service-category-label mb-2">
+                </div>
+                <h3 class="service-title mb-1">{{ service.title }}</h3>
+                <h4 class="service-subtitle mb-4">{{ service.subtitle }}</h4>
+                <p class="service-description text-lg max-w-2xl mb-8">{{ service.description }}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #mobileServices>
+      <div class="services-mobile-left w-full mb-8">
+        <div class="services-title-vertical-container flex flex-col items-center w-full mb-8">
+          <h2 class="services-title-minimal mt-8 mb-8">Our Services</h2>
+          <div class="services-title-line-outer flex flex-col items-center" style="height: 2.5rem;">
+            <div class="services-title-line-anim"></div>
+          </div>
+        </div>
+        <div class="services-categories flex flex-col gap-6 mb-8">
+          <span *ngFor="let service of services; let i = index" 
+                class="category-label font-semibold text-lg uppercase transition-opacity duration-300 opacity-50">
+            {{ service.category }}
+          </span>
+        </div>
+      </div>
+      <div class="services-mobile-right w-full">
+        <ng-container *ngFor="let service of services; let i = index">
+          <div class="service-container w-full max-w-3xl mx-auto">
+            <img [src]="service.imageUrl" alt="{{ service.title }}" class="service-image w-full h-[28vh] object-cover mb-6 border-none" />
+            <div class="service-category-label mb-2">
+            </div>
+            <h3 class="service-title mb-1">{{ service.title }}</h3>
+            <h4 class="service-subtitle mb-4">{{ service.subtitle }}</h4>
+            <p class="service-description text-lg max-w-2xl mb-8">{{ service.description }}</p>
+          </div>
+        </ng-container>
+      </div>
+      <div class="services-mobile-btn w-full flex justify-center mt-8 mb-8">
+        <app-primary-btn label="BOOK NOW" [routerLink]="['/services']"></app-primary-btn>
+      </div>
+    </ng-template>
+  </div>
+</section>
