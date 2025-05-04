@@ -122,7 +122,7 @@ html, body {
     position: absolute;
     top: 17%;
     right: 8%;
-    width: 50%;
+    width: 60%;
     height: 100%;
     overflow: visible;
     z-index: 2;
@@ -226,43 +226,102 @@ html, body {
     .main-title {
         left: 5%;
         max-width: 90%;
+        top: 75%;
+        z-index: 1;
+        gap: 0.5em;
     }
 
     .logo-container {
-        top: 10%;
-        right: 5%;
-        width: 80%;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 70vh;
+        z-index: 2;
+        overflow: visible;
+        position: absolute;
     }
 
     .logo-circle {
-        top: -10%;
-        right: -10%;
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transform: rotate(0deg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     #canvas3d {
-        width: 100%;
-        height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) !important;
+        width: 95vw !important;
+        height: 55vh !important;
+        max-width: 500px !important;
+        max-height: 500px !important;
     }
 
     .curved-text-svg {
-        width: 95%;
-        height: 95%;
+        width: 75%;
+        height: 75%;
+        opacity: 0.8;
+        transform: translate(-50%, -50%) rotate(0deg);
     }
 
     .title-word {
-        font-size: 10vw;
+        font-size: 18vw;
     }
 
     .title-word.small-word {
-        font-size: 6vw;
+        font-size: 5.5vw;
     }
 
     .subtitle-text {
-        font-size: 4vw;
+        font-size: 4.2vw;
+        margin-top: 1rem;
+        margin-top: 0.4em;
+        margin-bottom: 0.6em;
     }
 
-    .cta-buttons {
-        flex-direction: column;
-        gap: 0.5rem;
+    .title-words {
+        gap: 0.1em;
+        margin-bottom: 0.2em;
+    }
+
+    .spline-canvas {
+        z-index: 10;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        height: 70vh;
+        min-height: 120px;
+        margin-bottom: 1.5rem;
+    }
+
+    .logo-circle {
+        transform: rotate(-15deg) scale(0.7);
+    }
+
+    .main-title {
+        padding: 0 1.2rem;
+        max-width: 98vw;
+    }
+
+    .title-word {
+        font-size: 14vw;
+    }
+
+    .title-word.small-word {
+        font-size: 7vw;
+    }
+
+    .subtitle-text {
+        font-size: 5vw;
     }
 }

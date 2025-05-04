@@ -9,6 +9,7 @@
   overflow: visible;
   z-index: 1;
   background: #f8f5f0 !important;
+  align-items: center;
 }
 .services-left {
   width: 32vw;
@@ -108,9 +109,8 @@
   min-height: 100vh;
 }
 .service-section {
-  position: sticky;
-  top: 4rem;
-  z-index: 1;
+  position: static;
+  z-index: auto;
   background: transparent !important;
   display: flex;
   flex-direction: column;
@@ -119,10 +119,10 @@
   min-height: 100vh;
 }
 .service-section:not(:first-child) {
-  z-index: 0;
+  z-index: auto;
 }
 .service-section.active {
-  z-index: 2;
+  z-index: auto;
   pointer-events: auto;
 }
 .service-container {
@@ -248,5 +248,10 @@
     max-width: 98vw;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+  }
+}
+@media (min-width: 769px) {
+  .services-scroll-container {
+    margin-top: 10%;
   }
 }
