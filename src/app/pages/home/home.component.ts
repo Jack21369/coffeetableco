@@ -6,6 +6,7 @@ import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.co
 import { SecondaryBtnComponent } from '../../components/secondary-btn/secondary-btn.component';
 import { HomeMenuPreviewComponent } from '../home-menu-preview/home-menu-preview.component';
 import { HomeServicePreviewComponent } from '../home-service-preview/home-service-preview.component';
+import { HomeGalleryPreviewComponent } from '../home-gallery-preview/home-gallery-preview.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { HomeServicePreviewComponent } from '../home-service-preview/home-servic
     PrimaryBtnComponent,
     SecondaryBtnComponent,
     HomeMenuPreviewComponent,
-    HomeServicePreviewComponent
+    HomeServicePreviewComponent,
+    HomeGalleryPreviewComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
