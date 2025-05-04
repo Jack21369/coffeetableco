@@ -195,9 +195,10 @@
 }
 @media (max-width: 768px) {
   .services-title-minimal {
-    font-size: 1.2rem;
+    font-size: 2rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
+    font-weight: 700;
   }
   .services-title-vertical-container {
     margin-bottom: 1.2rem;

@@ -295,6 +295,13 @@ html, body {
         z-index: 10;
         cursor: pointer;
     }
+
+    .visit-title-minimal {
+        font-size: 2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
 }
 
 @media (max-width: 480px) {
@@ -324,4 +331,114 @@ html, body {
     .subtitle-text {
         font-size: 5vw;
     }
+}
+
+/* --- Visit Us Section Styles (matching service preview) --- */
+.visit-us-section {
+  position: relative;
+  width: 100vw;
+  display: flex;
+  font-family: 'Jost', sans-serif;
+  padding-left: 5%;
+  padding-right: 5%;
+  overflow: visible;
+  z-index: 1;
+  background: #f8f5f0 !important;
+  align-items: center;
+}
+.visit-title-vertical-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.visit-title-minimal {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2C1810;
+  letter-spacing: 0.08em;
+  text-align: left;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.visit-title-line-outer {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: 0.5rem;
+}
+.visit-title-line-anim {
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, #8B6B3A 0%, #2C1810 100%);
+  border-radius: 2px;
+  animation: growLine 1.2s cubic-bezier(0.77,0,0.18,1) 0.2s both;
+}
+@keyframes growLine {
+  0% {
+    height: 0;
+    opacity: 0.2;
+  }
+  100% {
+    height: 100%;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .visit-title-minimal {
+    font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+}
+
+.directions-section {
+  margin-top: 0.5rem;
+}
+.directions-section-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #8B6B3A;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+.directions-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1.25rem;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .directions-icons {
+    justify-content: flex-start;
+  }
+  .directions-section {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.contacts-section-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #8B6B3A;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.5rem;
+}
+
+.directions-icons img {
+  border: 1px solid #bfa77a;
+  border-radius: 8px;
+  background: #f8f5f0;
+  padding: 2px;
+  transition: transform 0.2s;
 }
