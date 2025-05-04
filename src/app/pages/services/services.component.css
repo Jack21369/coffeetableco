@@ -1,0 +1,32 @@
+/* Services Title Styles */
+.services-title-vertical-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.services-title-minimal {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #2C1810;
+    letter-spacing: 0.08em;
+    text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .services-title-minimal {
+        font-size: 1.2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .services-title-vertical-container {
+        margin-bottom: 1.2rem;
+    }
+}
