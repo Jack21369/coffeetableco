@@ -39,7 +39,7 @@ export class HomeServicePreviewComponent implements AfterViewInit {
       title: 'EVENT THEMES',
       subtitle: 'IMMERSIVE EXPERIENCES',
       description: 'Transform your gathering with immersive, custom event themes. From cozy autumn nights to vibrant summer fiestas, we bring your vision to life.',
-      imageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
+      imageUrl: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
       category: 'Event Themes'
     },
     {
