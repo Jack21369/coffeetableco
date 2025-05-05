@@ -23,7 +23,7 @@
 }
 
 .footer-col {
-  flex: 1 1 200px;
+  flex: 1 1 150px;
   min-width: 180px;
   display: flex;
   flex-direction: column;

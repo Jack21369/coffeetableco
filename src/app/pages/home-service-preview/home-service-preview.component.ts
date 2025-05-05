@@ -20,13 +20,12 @@ import { HostListener } from '@angular/core';
 export class HomeServicePreviewComponent implements AfterViewInit {
   @ViewChild('titleElement') titleElement!: ElementRef;
   @ViewChild('mobileTitleElement') mobileTitleElement!: ElementRef;
+  @ViewChild('servicesContainer') servicesContainer!: ElementRef;
 
   isMobile: Observable<boolean>;
   activeServiceIndex = 0;
   isProgrammaticScroll = false;
   visibleServices: Set<number> = new Set();
-
-  @ViewChild('servicesContainer') servicesContainer!: ElementRef;
 
   services = [
     {
@@ -82,12 +81,23 @@ export class HomeServicePreviewComponent implements AfterViewInit {
     const container = this.servicesContainer?.nativeElement;
     if (!container) return;
 
+    // Check desktop service containers
     const serviceElements = container.querySelectorAll('.service-container');
-    serviceElements.forEach((element: HTMLElement, index: number) => {
-      const rect = element.getBoundingClientRect();
+    serviceElements.forEach((element: Element, index: number) => {
+      const rect = (element as HTMLElement).getBoundingClientRect();
       const isVisible = rect.top < window.innerHeight * 0.8;
       if (isVisible) {
         this.visibleServices.add(index);
+        element.classList.add('visible');
+      }
+    });
+
+    // Check mobile service containers
+    const mobileServiceElements = document.querySelectorAll('.services-mobile-right .service-container');
+    mobileServiceElements.forEach((element: Element, index: number) => {
+      const rect = (element as HTMLElement).getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.8;
+      if (isVisible) {
         element.classList.add('visible');
       }
     });
@@ -99,7 +109,15 @@ export class HomeServicePreviewComponent implements AfterViewInit {
     setTimeout(() => {
       const anchor = document.getElementById('service-anchor-' + index);
       if (anchor) {
-        anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Get the header height to offset the scroll position
+        const headerHeight = document.querySelector('app-navbar')?.clientHeight || 0;
+        const elementPosition = anchor.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
       setTimeout(() => {
         this.isProgrammaticScroll = false;
@@ -118,12 +136,18 @@ export class HomeServicePreviewComponent implements AfterViewInit {
       threshold: 0.1
     });
 
-    // Start observing both desktop and mobile title elements
+    // Observe both desktop and mobile title elements
     if (this.titleElement?.nativeElement) {
       observer.observe(this.titleElement.nativeElement);
     }
     if (this.mobileTitleElement?.nativeElement) {
       observer.observe(this.mobileTitleElement.nativeElement);
     }
+
+    // Observe mobile service containers
+    const mobileServiceElements = document.querySelectorAll('.services-mobile-right .service-container');
+    mobileServiceElements.forEach(element => {
+      observer.observe(element);
+    });
   }
 }

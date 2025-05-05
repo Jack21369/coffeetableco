@@ -49,13 +49,17 @@
         </div>
         <div class="services-categories flex flex-col gap-6 mb-8">
           <span *ngFor="let service of services; let i = index" 
-                class="category-label font-semibold text-lg uppercase transition-opacity duration-300 opacity-50">
+                [class.active-category]="activeServiceIndex === i"
+                class="category-label font-semibold text-lg uppercase transition-opacity duration-300 opacity-50"
+                (click)="scrollToService(i)"
+                style="cursor: pointer;">
             {{ service.category }}
           </span>
         </div>
       </div>
       <div class="services-mobile-right w-full">
         <ng-container *ngFor="let service of services; let i = index">
+          <div [id]="'service-anchor-' + i" style="height: 1px; width: 100%;"></div>
           <div class="service-container w-full max-w-3xl mx-auto">
             <img [src]="service.imageUrl" alt="{{ service.title }}" class="service-image w-full h-[28vh] object-cover mb-6 border-none" />
             <div class="service-category-label mb-2">
