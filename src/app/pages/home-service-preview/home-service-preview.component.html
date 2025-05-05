@@ -3,7 +3,7 @@
     <ng-container *ngIf="!(isMobile | async); else mobileServices">
       <div class="services-left sticky-panel flex flex-col justify-center z-20">
         <div class="services-title-vertical-container flex flex-col items-center w-full mb-8">
-          <h2 class="services-title-minimal mt-8 mb-8">Our Services</h2>
+          <h2 #titleElement class="services-title-minimal fade-up-delay-1">Our Services</h2>
           <div class="services-title-line-outer flex flex-col items-center" style="height: 2.5rem;">
             <div class="services-title-line-anim"></div>
           </div>
@@ -20,7 +20,7 @@
         <app-primary-btn label="BOOK NOW" [routerLink]="['/services']"></app-primary-btn>
       </div>
       <div class="services-right w-[68vw] relative z-10">
-        <div class="services-scroll-container relative">
+        <div class="services-scroll-container relative" #servicesContainer>
           <ng-container *ngFor="let service of services; let i = index">
             <div [id]="'service-anchor-' + i" style="height: 1px; width: 100%;"></div>
             <div class="service-section"
@@ -42,7 +42,7 @@
     <ng-template #mobileServices>
       <div class="services-mobile-left w-full mb-8">
         <div class="services-title-vertical-container flex flex-col items-center w-full mb-8">
-          <h2 class="services-title-minimal mt-8 mb-8">Our Services</h2>
+          <h2 #mobileTitleElement class="services-title-minimal fade-up-delay-1">Our Services</h2>
           <div class="services-title-line-outer flex flex-col items-center" style="height: 2.5rem;">
             <div class="services-title-line-anim"></div>
           </div>

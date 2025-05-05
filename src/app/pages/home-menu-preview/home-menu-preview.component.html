@@ -3,12 +3,12 @@
         <!-- Section label and title container -->
         <div class="mb-16 md:mb-24">
           <div class="menu-section-label mb-4">
-            <span class="menu-label-text fade-up-delay-1">Our Selection</span>
+            <span #labelElement class="menu-label-text fade-up-delay-1">Our Selection</span>
           </div>
           <div class="relative">
             <div class="flex flex-col md:flex-row items-start md:items-baseline gap-2 md:gap-6">
-              <h2 class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-2 text-[#2C1810]">FEATURED</h2>
-              <span class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-3 text-[#5C4321]">DRINKS</span>
+              <h2 #featuredElement class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-2 text-[#2C1810]">FEATURED</h2>
+              <span #drinksElement class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-3 text-[#5C4321]">DRINKS</span>
             </div>
           </div>
         </div>
@@ -23,7 +23,7 @@
 
         <!-- View All Menu Link -->
         <div class="mt-16 flex justify-center md:justify-end">
-            <a [routerLink]="['/menu']" class="group inline-flex items-center gap-3 md:gap-4 text-lg md:text-xl text-[#2C1810] font-medium tracking-wider fade-up-delay-4 hover:opacity-80 transition-opacity">
+            <a #menuLinkElement [routerLink]="['/menu']" class="group inline-flex items-center gap-3 md:gap-4 text-lg md:text-xl text-[#2C1810] font-medium tracking-wider fade-up-delay-4 hover:opacity-80 transition-opacity">
                 <span class="relative">
                     VIEW FULL MENU
                     <div class="absolute left-0 right-0 h-[2px] bg-[#2C1810] bottom-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-right"></div>

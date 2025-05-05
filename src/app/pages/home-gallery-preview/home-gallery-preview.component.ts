@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.component';
 
 @Component({
@@ -7,6 +7,29 @@ import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.co
   templateUrl: './home-gallery-preview.component.html',
   styleUrl: './home-gallery-preview.component.css'
 })
-export class HomeGalleryPreviewComponent {
+export class HomeGalleryPreviewComponent implements AfterViewInit {
+  @ViewChild('titleElement') titleElement!: ElementRef;
 
+  constructor() { }
+
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  private setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Start observing the title element
+    if (this.titleElement?.nativeElement) {
+      observer.observe(this.titleElement.nativeElement);
+    }
+  }
 }

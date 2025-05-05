@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.component';
@@ -17,10 +17,16 @@ import { HostListener } from '@angular/core';
   templateUrl: './home-service-preview.component.html',
   styleUrl: './home-service-preview.component.css'
 })
-export class HomeServicePreviewComponent {
+export class HomeServicePreviewComponent implements AfterViewInit {
+  @ViewChild('titleElement') titleElement!: ElementRef;
+  @ViewChild('mobileTitleElement') mobileTitleElement!: ElementRef;
+
   isMobile: Observable<boolean>;
   activeServiceIndex = 0;
   isProgrammaticScroll = false;
+  visibleServices: Set<number> = new Set();
+
+  @ViewChild('servicesContainer') servicesContainer!: ElementRef;
 
   services = [
     {
@@ -47,13 +53,19 @@ export class HomeServicePreviewComponent {
   ];
 
   constructor(private breakpointObserver: BreakpointObserver) {
-    this.isMobile = this.breakpointObserver.observe([Breakpoints.Handset, Breakpoints.Small])
-      .pipe(map((result: { matches: boolean }) => result.matches));
+    this.isMobile = this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small])
+      .pipe(map(result => result.matches));
+  }
+
+  ngAfterViewInit() {
+    this.checkVisibility();
+    this.setupIntersectionObserver();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (this.isProgrammaticScroll) return;
+    this.checkVisibility();
     const section = document.querySelector('.services-preview-section');
     if (!section) return;
     const rect = section.getBoundingClientRect();
@@ -64,6 +76,21 @@ export class HomeServicePreviewComponent {
     const perSection = sectionHeight / this.services.length;
     const index = Math.min(this.services.length - 1, Math.floor(relativeScroll / perSection));
     this.activeServiceIndex = index;
+  }
+
+  checkVisibility() {
+    const container = this.servicesContainer?.nativeElement;
+    if (!container) return;
+
+    const serviceElements = container.querySelectorAll('.service-container');
+    serviceElements.forEach((element: HTMLElement, index: number) => {
+      const rect = element.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.8;
+      if (isVisible) {
+        this.visibleServices.add(index);
+        element.classList.add('visible');
+      }
+    });
   }
 
   scrollToService(index: number) {
@@ -78,5 +105,25 @@ export class HomeServicePreviewComponent {
         this.isProgrammaticScroll = false;
       }, 600);
     }, 10);
+  }
+
+  private setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    // Start observing both desktop and mobile title elements
+    if (this.titleElement?.nativeElement) {
+      observer.observe(this.titleElement.nativeElement);
+    }
+    if (this.mobileTitleElement?.nativeElement) {
+      observer.observe(this.mobileTitleElement.nativeElement);
+    }
   }
 }

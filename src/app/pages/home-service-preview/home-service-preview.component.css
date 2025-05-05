@@ -8,9 +8,22 @@
   padding-right: 5%;
   overflow: visible;
   z-index: 1;
-  background: #f8f5f0 !important;
   align-items: center;
 }
+
+/* Fade up animations with delays */
+.fade-up-delay-1 {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-up-delay-1.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 .services-left {
   width: 32vw;
   background: transparent;
@@ -126,7 +139,6 @@
   pointer-events: auto;
 }
 .service-container {
-  background: #f8f5f0 !important;
   box-shadow: none !important;
   border: none !important;
   padding-left: 5rem;
@@ -135,11 +147,24 @@
   width: 100%;
   margin-left: auto;
   margin-right: 0;
+  position: relative;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(50px);
 }
+
+.service-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .service-section .service-image {
-  box-shadow: none;
+  box-shadow: 0 4px 20px rgba(44, 24, 16, 0.1);
   border: none;
   background: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  height: 35vh;
 }
 .service-title, .service-subtitle {
   text-transform: uppercase;
@@ -214,7 +239,7 @@
     font-size: 1rem;
   }
   .service-section .service-image {
-    height: 28vh;
+    height: 35vh;
   }
   .service-container {
     max-width: 98vw;

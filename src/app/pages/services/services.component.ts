@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
@@ -13,23 +13,43 @@ import { SecondaryBtnComponent } from '../../components/secondary-btn/secondary-
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })
-export class ServicesComponent implements OnInit {
+export class ServicesComponent implements OnInit, AfterViewInit {
+  @ViewChild('contactFormContainer', { read: ElementRef }) contactFormElement!: ElementRef;
   contactForm: FormGroup;
-  inquiryTypes = ['Catering', 'Artists', 'Inquiries'];
-  selectedType = 'Inquiries';
+  inquiryTypes = ['General Inquiry', 'Catering', 'Event Booking', 'Other'];
+  selectedType = 'General Inquiry';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: [''],
-      inquiryType: ['Inquiries', Validators.required],
+      inquiryType: ['General Inquiry'],
       message: ['', Validators.required]
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Additional initialization logic if needed
+  }
+
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  private setupIntersectionObserver() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    const contactFormElement = this.contactFormElement.nativeElement;
+    observer.observe(contactFormElement);
   }
 
   onSubmit() {
@@ -38,7 +58,7 @@ export class ServicesComponent implements OnInit {
       console.log(this.contactForm.value);
       // Reset form after submission
       this.contactForm.reset();
-      this.contactForm.patchValue({ inquiryType: 'Inquiries' });
+      this.contactForm.patchValue({ inquiryType: 'General Inquiry' });
     }
   }
 }
