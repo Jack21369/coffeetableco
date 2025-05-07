@@ -7,6 +7,7 @@ import { SecondaryBtnComponent } from '../../components/secondary-btn/secondary-
 import { HomeMenuPreviewComponent } from '../home-menu-preview/home-menu-preview.component';
 import { HomeServicePreviewComponent } from '../home-service-preview/home-service-preview.component';
 import { HomeGalleryPreviewComponent } from '../home-gallery-preview/home-gallery-preview.component';
+import { HomeAboutPreviewComponent } from '../home-about-preview/home-about-preview.component';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ import { HomeGalleryPreviewComponent } from '../home-gallery-preview/home-galler
     SecondaryBtnComponent,
     HomeMenuPreviewComponent,
     HomeServicePreviewComponent,
-    HomeGalleryPreviewComponent
+    HomeGalleryPreviewComponent,
+    HomeAboutPreviewComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
