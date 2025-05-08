@@ -48,6 +48,10 @@
   justify-content: center;
 }
 
+.about-description p {
+  color: rgba(44, 24, 16, 0.8);
+}
+
 /* Scrollbar styling */
 .about-description::-webkit-scrollbar {
   width: 2px;
@@ -117,6 +121,10 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   border-color: rgba(139, 107, 58, 0.2);
+}
+
+.value-item p {
+  color: rgba(44, 24, 16, 0.7);
 }
 
 /* Mobile Responsive Styles */
