@@ -3,12 +3,13 @@
   position: relative;
   width: 100vw;
   display: flex;
+  justify-content: space-between;
   font-family: 'Jost', sans-serif;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 15%;
+  padding-right: 15%;
   overflow: visible;
   z-index: 1;
-  align-items: center;
+  align-items: flex-start;
 }
 
 /* Fade up animations with delays */
@@ -25,25 +26,65 @@
 }
 
 .services-left {
-  width: 32vw;
+  width: 30vw;
   background: transparent;
   pointer-events: none;
   min-width: 0;
+  flex-shrink: 0;
 }
-.sticky-panel {
+
+.first-service-container {
+  position: static;
+  max-width: 41vw;
+  padding-top: 0;
+  margin-top: 12rem;
+  z-index: 1;
+  min-width: 0;
+  margin-bottom: 2rem;
+  opacity: 1;
+  transform: none;
+}
+
+.first-service-container .service-container {
+  padding-left: 0;
+  margin-bottom: 0;
+  max-width: 100%;
+  width: 100%;
+  margin-left: 0;
+  position: relative;
+  opacity: 1;
+  transform: none;
+}
+
+.first-service-container .service-image {
+  box-shadow: 0 4px 20px rgba(44, 24, 16, 0.1);
+  border: none;
+  background: transparent;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  height: 35vh;
+}
+
+.services-left.fixed-panel {
   position: sticky;
   top: 0;
-  align-self: flex-start;
+  width: 30vw;
   background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-right: 3vw;
-  z-index: 20;
-  padding-top: 10%;
-  min-width: 340px;
+  align-items: flex-start;
+  padding-top: 15vh;
   pointer-events: auto;
+  flex-shrink: 0;
+  padding-left: 0;
 }
+
+.main-content {
+  width: 35vw;
+  flex-shrink: 0;
+}
+
 .services-left app-primary-btn {
   margin-top: 2.5rem;
   z-index: 21;
@@ -109,11 +150,10 @@
   color: #5C4321;
 }
 .services-right {
-  width: 68vw;
+  width: 100%;
   min-height: 100vh;
   position: relative;
   background: transparent;
-  padding-right: 0 !important;
   min-width: 0;
 }
 .services-scroll-container {
@@ -127,7 +167,7 @@
   background: transparent !important;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   min-height: 100vh;
 }
@@ -141,12 +181,9 @@
 .service-container {
   box-shadow: none !important;
   border: none !important;
-  padding-left: 5rem;
   margin-bottom: 4rem;
-  max-width: 33vw;
+  max-width: 41vw;
   width: 100%;
-  margin-left: auto;
-  margin-right: 0;
   position: relative;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
@@ -201,6 +238,14 @@
   .sticky-panel {
     padding-right: 0;
   }
+  .first-service-container {
+    width: 100vw;
+    padding-top: 2rem;
+  }
+  .first-service-container .service-container {
+    padding: 0.7rem 0 0 1rem;
+    max-width: 80vw;
+  }
   .services-right {
     margin-left: 0;
     width: 100vw;
@@ -209,7 +254,6 @@
   .service-container {
     padding: 0.7rem 0 0 1rem;
     max-width: 80vw;
-    margin-right: 0;
   }
   .service-section {
     top: 2rem;
@@ -243,7 +287,6 @@
   }
   .service-container {
     max-width: 98vw;
-    margin-right: 0;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   }
