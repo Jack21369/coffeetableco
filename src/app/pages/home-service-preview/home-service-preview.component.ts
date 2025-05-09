@@ -26,6 +26,7 @@ export class HomeServicePreviewComponent implements AfterViewInit {
   activeServiceIndex = 0;
   isProgrammaticScroll = false;
   visibleServices: Set<number> = new Set();
+  private intersectionObserver: IntersectionObserver;
 
   services = [
     {
@@ -54,6 +55,20 @@ export class HomeServicePreviewComponent implements AfterViewInit {
   constructor(private breakpointObserver: BreakpointObserver) {
     this.isMobile = this.breakpointObserver.observe([Breakpoints.XSmall, Breakpoints.Small])
       .pipe(map(result => result.matches));
+    
+    this.intersectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -10% 0px'
+      }
+    );
   }
 
   ngAfterViewInit() {
@@ -65,8 +80,13 @@ export class HomeServicePreviewComponent implements AfterViewInit {
   onWindowScroll() {
     if (this.isProgrammaticScroll) return;
     this.checkVisibility();
+    this.updateActiveServiceIndex();
+  }
+
+  private updateActiveServiceIndex() {
     const section = document.querySelector('.services-preview-section');
     if (!section) return;
+    
     const rect = section.getBoundingClientRect();
     const sectionTop = rect.top + window.scrollY;
     const sectionHeight = rect.height;
@@ -74,27 +94,16 @@ export class HomeServicePreviewComponent implements AfterViewInit {
     const relativeScroll = Math.max(0, scrollY - sectionTop);
     const perSection = sectionHeight / this.services.length;
     const index = Math.min(this.services.length - 1, Math.floor(relativeScroll / perSection));
-    this.activeServiceIndex = index;
+    
+    if (this.activeServiceIndex !== index) {
+      this.activeServiceIndex = index;
+    }
   }
 
   checkVisibility() {
-    const container = this.servicesContainer?.nativeElement;
-    if (!container) return;
-
-    // Check desktop service containers
-    const serviceElements = container.querySelectorAll('.service-container');
-    serviceElements.forEach((element: Element, index: number) => {
-      const rect = (element as HTMLElement).getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight * 0.8;
-      if (isVisible) {
-        this.visibleServices.add(index);
-        element.classList.add('visible');
-      }
-    });
-
-    // Check mobile service containers
-    const mobileServiceElements = document.querySelectorAll('.services-mobile-right .service-container');
-    mobileServiceElements.forEach((element: Element, index: number) => {
+    // Check all service containers
+    const serviceElements = document.querySelectorAll('.service-container');
+    serviceElements.forEach((element: Element) => {
       const rect = (element as HTMLElement).getBoundingClientRect();
       const isVisible = rect.top < window.innerHeight * 0.8;
       if (isVisible) {
@@ -106,10 +115,10 @@ export class HomeServicePreviewComponent implements AfterViewInit {
   scrollToService(index: number) {
     this.isProgrammaticScroll = true;
     this.activeServiceIndex = index;
+    
     setTimeout(() => {
       const anchor = document.getElementById('service-anchor-' + index);
       if (anchor) {
-        // Get the header height to offset the scroll position
         const headerHeight = document.querySelector('app-navbar')?.clientHeight || 0;
         const elementPosition = anchor.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
@@ -119,6 +128,7 @@ export class HomeServicePreviewComponent implements AfterViewInit {
           behavior: 'smooth'
         });
       }
+      
       setTimeout(() => {
         this.isProgrammaticScroll = false;
       }, 600);
@@ -126,28 +136,18 @@ export class HomeServicePreviewComponent implements AfterViewInit {
   }
 
   private setupIntersectionObserver() {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-
-    // Observe both desktop and mobile title elements
+    // Observe title elements
     if (this.titleElement?.nativeElement) {
-      observer.observe(this.titleElement.nativeElement);
+      this.intersectionObserver.observe(this.titleElement.nativeElement);
     }
     if (this.mobileTitleElement?.nativeElement) {
-      observer.observe(this.mobileTitleElement.nativeElement);
+      this.intersectionObserver.observe(this.mobileTitleElement.nativeElement);
     }
 
-    // Observe mobile service containers
-    const mobileServiceElements = document.querySelectorAll('.services-mobile-right .service-container');
-    mobileServiceElements.forEach(element => {
-      observer.observe(element);
+    // Observe all service containers
+    const serviceElements = document.querySelectorAll('.service-container');
+    serviceElements.forEach(element => {
+      this.intersectionObserver.observe(element);
     });
   }
 }
