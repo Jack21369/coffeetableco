@@ -4,12 +4,11 @@ import { RouterLink } from '@angular/router';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.component';
-import { SecondaryBtnComponent } from '../../components/secondary-btn/secondary-btn.component';
 
 @Component({
   selector: 'app-services',
   standalone: true,
-  imports: [CommonModule, RouterLink, NavbarComponent, FormsModule, ReactiveFormsModule, PrimaryBtnComponent, SecondaryBtnComponent],
+  imports: [CommonModule, RouterLink, NavbarComponent, FormsModule, ReactiveFormsModule, PrimaryBtnComponent],
   templateUrl: './services.component.html',
   styleUrl: './services.component.css'
 })
