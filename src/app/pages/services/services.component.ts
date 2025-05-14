@@ -15,7 +15,7 @@ import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.co
 export class ServicesComponent implements OnInit, AfterViewInit {
   @ViewChild('contactFormContainer', { read: ElementRef }) contactFormElement!: ElementRef;
   contactForm: FormGroup;
-  inquiryTypes = ['General Inquiry', 'Catering', 'Event Booking', 'Other'];
+  inquiryTypes = ['General Inquiry', 'Private Events', 'Event Booking', 'Other'];
   selectedType = 'General Inquiry';
 
   constructor(private fb: FormBuilder) {

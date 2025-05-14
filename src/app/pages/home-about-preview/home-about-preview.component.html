@@ -1,56 +1,36 @@
-<section class="about-preview-section w-full flex relative">
-  <div class="w-full max-w-[1800px] mx-auto relative z-10 px-[5%] md:px-[10%]">
-    <div class="about-content flex flex-col md:flex-row gap-16 md:gap-32 items-center">
-      <!-- Left side - Image and decorative elements -->
-      <div class="about-image-container w-full md:w-1/2 relative">
-        <div class="image-wrapper relative">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" 
-               alt="The Coffee Table Interior" 
-               class="w-full h-full object-cover shadow-lg">
-          <div class="absolute inset-0 bg-gradient-to-t from-[#2C1810]/80 to-transparent"></div>
-        </div>
-        <div class="decorative-elements absolute -bottom-6 -right-6 w-24 h-24 bg-[#8B6B3A] opacity-20"></div>
-      </div>
+<section class="about-preview">
+  <app-loading-state *ngIf="isLoading" message="Loading our story..."></app-loading-state>
+  
+  <div class="about-content" *ngIf="!isLoading">
+    <div class="about-text">
+      <h2 class="about-title">Our Story</h2>
+      <p class="about-description">
+        Welcome to The Coffee Table, where we blend exceptional coffee with warm hospitality. 
+        Our journey began with a simple passion for creating memorable experiences through 
+        carefully crafted beverages and genuine connections.
+      </p>
+      <p class="about-description">
+        From our signature coffee creations to our selection of teas, lemonades, and Thai tea, 
+        we're committed to serving quality drinks that bring people together. Whether you're 
+        here for a quick pick-me-up or planning a private event, we're dedicated to making 
+        every visit special.
+      </p>
+    </div>
 
-      <!-- Right side - Content -->
-      <div class="about-text-container w-full md:w-1/2">
-        <div class="about-title-vertical-container flex flex-col items-start w-full mb-4">
-          <h2 class="about-title-minimal fade-up-delay-1">Our Story</h2>
-          <div class="about-title-line-outer flex flex-col items-start" style="height: 2rem;">
-            <div class="about-title-line-anim"></div>
-          </div>
-        </div>
+    <div class="about-image-container">
+      <img 
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" 
+        alt="Classic cafe setting with tables, people, and a cozy, welcoming atmosphere" 
+        class="about-image"
+        loading="lazy"
+        decoding="async"
+      >
+    </div>
 
-        <div class="about-description space-y-4">
-          <p class="text-base text-[#2C1810] leading-loose tracking-wide">
-            Founded in 2023, The Coffee Table emerged from a passion for coffee and community. 
-            A space where stories are shared and connections are made.
-          </p>
-          
-          <p class="text-base text-[#2C1810] leading-loose tracking-wide">
-            Our commitment to quality extends from carefully sourced beans to every aspect of your experience. 
-            Creating moments of comfort and connection.
-          </p>
-
-          <div class="values-grid grid grid-cols-2 gap-3 mt-6">
-            <div class="value-item p-3 bg-[#F8F5F0]">
-              <h3 class="text-[#2C1810] font-semibold mb-1 tracking-wider">QUALITY</h3>
-              <p class="text-sm text-[#2C1810]/80 tracking-wide">Premium beans, expert brewing</p>
-            </div>
-            <div class="value-item p-3 bg-[#F8F5F0]">
-              <h3 class="text-[#2C1810] font-semibold mb-1 tracking-wider">COMMUNITY</h3>
-              <p class="text-sm text-[#2C1810]/80 tracking-wide">A space for everyone</p>
-            </div>
-            <div class="value-item p-3 bg-[#F8F5F0]">
-              <h3 class="text-[#2C1810] font-semibold mb-1 tracking-wider">SUSTAINABILITY</h3>
-              <p class="text-sm text-[#2C1810]/80 tracking-wide">Ethical sourcing, minimal waste</p>
-            </div>
-            <div class="value-item p-3 bg-[#F8F5F0]">
-              <h3 class="text-[#2C1810] font-semibold mb-1 tracking-wider">INNOVATION</h3>
-              <p class="text-sm text-[#2C1810]/80 tracking-wide">Creative flavors, unique experiences</p>
-            </div>
-          </div>
-        </div>
+    <div class="values-grid">
+      <div class="value-item" *ngFor="let value of values">
+        <h3 class="value-title">{{ value.title }}</h3>
+        <p class="value-description">{{ value.description }}</p>
       </div>
     </div>
   </div>

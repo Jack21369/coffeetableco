@@ -30,11 +30,11 @@ export class HomeServicePreviewComponent implements AfterViewInit {
 
   services = [
     {
-      title: 'PRIVATE CATERING',
+      title: 'PRIVATE EVENTS',
       subtitle: 'CURATED MENUS',
-      description: 'Exceptional coffee and curated menus for your private events. We handle everything from setup to service, so you can enjoy the moment.',
+      description: 'Exceptional coffee, teas, and specialty drinks for your private events. From classic lattes to Thai tea and lemonade, we handle everything from setup to service.',
       imageUrl: 'https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80',
-      category: 'Private Catering'
+      category: 'Private Events'
     },
     {
       title: 'EVENT THEMES',
