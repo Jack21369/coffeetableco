@@ -37,27 +37,27 @@ export class HomeComponent {
     this.router.navigate(['/menu']);
   }
 
-  ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      setTimeout(async () => {
-        try {
-          const canvas = document.getElementById('canvas3d') as HTMLCanvasElement;
-          if (!canvas) {
-            console.error('Canvas element not found');
-            return;
-          }
+  // ngOnInit(): void {
+  //   if (isPlatformBrowser(this.platformId)) {
+  //     setTimeout(async () => {
+  //       try {
+  //         const canvas = document.getElementById('canvas3d') as HTMLCanvasElement;
+  //         if (!canvas) {
+  //           console.error('Canvas element not found');
+  //           return;
+  //         }
 
-          // Initialize Spline
-          this.spline = new Application(canvas);
+  //         // Initialize Spline
+  //         this.spline = new Application(canvas);
           
-          // Load the Spline scene
-          await this.spline.load('https://prod.spline.design/lxLHzMvvS6jf8HJm/scene.splinecode');
-        } catch (error) {
-          console.error('Error initializing Spline:', error);
-        }
-      }, 100);
-    }
-  }
+  //         // Load the Spline scene
+  //         await this.spline.load('https://prod.spline.design/lxLHzMvvS6jf8HJm/scene.splinecode');
+  //       } catch (error) {
+  //         console.error('Error initializing Spline:', error);
+  //       }
+  //     }, 100);
+  //   }
+  // }
 
   ngOnDestroy(): void {
     if (this.spline) {
