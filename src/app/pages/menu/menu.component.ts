@@ -25,7 +25,7 @@ export class MenuComponent implements OnInit {
       description: 'Our smooth earl grey syrup with espresso and milk.',
       ingredients: 'Earl Grey Syrup • Espresso • Milk',
       price: 5.50,
-      imageUrl: 'https://images.unsplash.com/photo-1529892485617-25f63cd7b1e9?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '01',
       isRecommended: true
     },
@@ -35,7 +35,7 @@ export class MenuComponent implements OnInit {
       description: 'A sweetened matcha topped with sweet cream cold foam. Fruity pebble topping recommended',
       ingredients: 'Matcha • Sweet Cream Cold Foam • Fruity Pebbles',
       price: 6.50,
-      imageUrl: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '02',
       isRecommended: true
     },
@@ -45,7 +45,7 @@ export class MenuComponent implements OnInit {
       description: 'A hazelnut latte topped with sweet cream cold foam. Graham cracker topping recommended',
       ingredients: 'Hazelnut • Espresso • Sweet Cream Cold Foam • Graham Cracker',
       price: 6.50,
-      imageUrl: 'https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '03'
     }
   ];
@@ -57,7 +57,7 @@ export class MenuComponent implements OnInit {
       description: 'White chocolate mocha sauce with espresso and milk',
       ingredients: 'White Chocolate • Espresso • Milk',
       price: 5.80,
-      imageUrl: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '04'
     },
     {
@@ -66,7 +66,7 @@ export class MenuComponent implements OnInit {
       description: 'A warming blend of autumn spices and premium tea',
       ingredients: 'Autumn Blend Tea',
       price: 3.50,
-      imageUrl: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '05'
     },
     {
@@ -75,7 +75,7 @@ export class MenuComponent implements OnInit {
       description: 'A soothing blend of ginger and turmeric',
       ingredients: 'Ginger • Turmeric • Tea',
       price: 3.50,
-      imageUrl: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '06'
     }
   ];
@@ -87,7 +87,7 @@ export class MenuComponent implements OnInit {
       description: 'Espresso shot and milk. Optional: Sweetener or cold foam',
       ingredients: 'Espresso • Milk',
       price: 5.00,
-      imageUrl: 'https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '07'
     },
     {
@@ -96,7 +96,7 @@ export class MenuComponent implements OnInit {
       description: 'Espresso topped with steamed milk and thick foam',
       ingredients: 'Espresso • Steamed Milk • Foam',
       price: 4.50,
-      imageUrl: 'https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '08'
     },
     {
@@ -105,7 +105,7 @@ export class MenuComponent implements OnInit {
       description: 'Smooth espresso with iced/hot water',
       ingredients: 'Espresso • Water',
       price: 3.00,
-      imageUrl: 'https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '09'
     },
     {
@@ -114,7 +114,7 @@ export class MenuComponent implements OnInit {
       description: 'Bold, classic brewed coffee',
       ingredients: 'Fresh Ground Coffee',
       price: 3.50,
-      imageUrl: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '10'
     },
     {
@@ -123,7 +123,7 @@ export class MenuComponent implements OnInit {
       description: 'Double Shot of Espresso',
       ingredients: 'Double Shot Espresso',
       price: 3.00,
-      imageUrl: 'https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '11'
     },
     {
@@ -132,7 +132,7 @@ export class MenuComponent implements OnInit {
       description: 'Organic Bitches Brew- Notes of Dark Chocolate and Caramel- 12 oz',
       ingredients: 'Organic Coffee Beans',
       price: 16.00,
-      imageUrl: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?q=80&w=1200',
+      imageUrl: 'assets/images/latte.jpeg',
       index: '12'
     }
   ];
