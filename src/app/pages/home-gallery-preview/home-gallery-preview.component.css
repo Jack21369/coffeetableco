@@ -4,8 +4,8 @@
   width: 100vw;
   display: flex;
   font-family: 'Jost', sans-serif;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   overflow: visible;
   z-index: 1;
   align-items: center;
@@ -134,6 +134,20 @@
   }
   .flex.justify-end {
     padding-top: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gallery-preview-section {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-preview-section {
+    padding-left: 5%;
+    padding-right: 5%;
   }
 }
 

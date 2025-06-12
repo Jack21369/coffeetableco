@@ -257,3 +257,38 @@
 .menu-item:nth-child(4) { animation-delay: 0.4s; }
 .menu-item:nth-child(5) { animation-delay: 0.5s; }
 .menu-item:nth-child(6) { animation-delay: 0.6s; }
+
+.menu-category-header-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.menu-category-header {
+  font-family: 'Jost', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #2C1810;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin-top: 1em;
+  margin-bottom: 0;
+  margin-right: 1.5rem;
+  white-space: nowrap;
+}
+
+.menu-category-header-line {
+  flex: 1;
+  height: 1px;
+  background: #2C1810;
+  opacity: 0.5;
+  align-self: center;
+  justify-self: center;
+  margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+  .menu-category-header {
+    font-size: 1.8rem;
+  }
+}

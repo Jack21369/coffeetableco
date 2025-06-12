@@ -4,8 +4,8 @@
   width: 100vw;
   display: flex;
   font-family: 'Jost', sans-serif;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
   overflow: visible;
   z-index: 1;
 }
@@ -130,7 +130,19 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .menu-preview-section {
+    padding-left: 2vw;
+    padding-right: 2vw;
+  }
+}
+
 @media (max-width: 768px) {
+  .menu-preview-section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  
   .menu-title-minimal {
     font-size: 1.2rem;
     margin-top: 1rem;

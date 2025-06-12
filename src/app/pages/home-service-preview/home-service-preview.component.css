@@ -5,8 +5,8 @@
   display: flex;
   justify-content: space-between;
   font-family: 'Jost', sans-serif;
-  padding-left: 15%;
-  padding-right: 15%;
+  padding-left: 10%;
+  padding-right: 10%;
   overflow: visible;
   z-index: 1;
   align-items: flex-start;

@@ -16,7 +16,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   @ViewChild('contactFormContainer', { read: ElementRef }) contactFormElement!: ElementRef;
   contactForm: FormGroup;
   artistForm: FormGroup;
-  inquiryTypes = ['General Inquiry', 'Event Booking', 'Artist Submission'];
+  inquiryTypes = ['General Inquiry', 'Event Booking', 'Artist Submission', 'Join the Team'];
   selectedType = 'General Inquiry';
   drinkOptions = [
     'Encore Espresso',
@@ -33,18 +33,24 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     'Groundwork Coffee Beans'
   ];
   formError: string | null = null;
+  referralOptions = ['Social Media', 'Online', 'Friends', 'Other'];
+  teamForm: FormGroup;
+  resumeFile: File | null = null;
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       numberOfPeople: ['', Validators.required],
-      duration: ['', Validators.required],
+      date: ['', Validators.required],
+      startTime: ['', Validators.required],
+      endTime: ['', Validators.required],
       drinkSelection: [[], Validators.required],
       theme: [''],
       location: ['', Validators.required],
       inquiryType: ['General Inquiry', Validators.required],
-      message: ['']
+      message: [''],
+      referral: ['', Validators.required]
     });
     this.artistForm = this.fb.group({
       name: ['', Validators.required],
@@ -52,7 +58,15 @@ export class ServicesComponent implements OnInit, AfterViewInit {
       instrument: ['', Validators.required],
       video: ['', Validators.required],
       setDuration: ['', Validators.required],
-      motivation: ['']
+      motivation: [''],
+      date: ['', Validators.required],
+      referral: ['', Validators.required]
+    });
+    this.teamForm = this.fb.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      resume: [null, Validators.required]
     });
   }
 
@@ -94,6 +108,15 @@ export class ServicesComponent implements OnInit, AfterViewInit {
         this.formError = 'Please fill out all required fields and enter a valid email.';
         Object.values(this.artistForm.controls).forEach(control => control.markAsTouched());
       }
+    } else if (this.selectedType === 'Join the Team') {
+      if (this.teamForm.valid) {
+        console.log(this.teamForm.value);
+        this.teamForm.reset();
+        this.resumeFile = null;
+      } else {
+        this.formError = 'Please fill out all required fields and upload your resume.';
+        Object.values(this.teamForm.controls).forEach(control => control.markAsTouched());
+      }
     } else {
       if (this.contactForm.valid) {
         console.log(this.contactForm.value);
@@ -127,6 +150,15 @@ export class ServicesComponent implements OnInit, AfterViewInit {
       this.contactForm.patchValue({ drinkSelection: ["Barista's Choice"] });
     } else {
       this.contactForm.patchValue({ drinkSelection: [] });
+    }
+  }
+
+  onResumeChange(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.resumeFile = input.files[0];
+      this.teamForm.patchValue({ resume: this.resumeFile });
+      this.teamForm.get('resume')?.updateValueAndValidity();
     }
   }
 }

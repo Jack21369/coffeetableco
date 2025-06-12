@@ -65,7 +65,8 @@ html, body {
 .main-title {
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 0;
+    padding-left: 10%;
     transform: translateY(-50%);
     z-index: 3;
     text-align: left;
@@ -222,13 +223,15 @@ html, body {
 }
 
 /* Responsive styles */
+@media (max-width: 1024px) {
+    .main-title {
+        padding-left: 2vw;
+    }
+}
+
 @media (max-width: 768px) {
     .main-title {
-        left: 5%;
-        max-width: 90%;
-        top: 75%;
-        z-index: 1;
-        gap: 0.5em;
+        padding-left: 5%;
     }
 
     .logo-container {

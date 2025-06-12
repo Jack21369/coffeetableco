@@ -14,9 +14,7 @@ import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.co
   styleUrl: './menu.component.css'
 })
 export class MenuComponent implements OnInit {
-  selectedCategory: 'ALL' | DrinkCategory = 'ALL';
-  
-  categories: ('ALL' | DrinkCategory)[] = ['ALL', 'Specials', 'Classics', 'Non-Espresso'];
+  categories: DrinkCategory[] = ['Specials', 'Classics', 'Non-Espresso'];
 
   signatureItems: MenuItem[] = [
     {
@@ -141,15 +139,18 @@ export class MenuComponent implements OnInit {
     return [...this.signatureItems, ...this.seasonalItems, ...this.popularItems];
   }
 
-  get filteredItems(): MenuItem[] {
-    if (this.selectedCategory === 'ALL') {
-      return this.allItems;
-    }
-    return this.allItems.filter(item => item.category === this.selectedCategory);
+  get groupedItems(): { [key in DrinkCategory]: MenuItem[] } {
+    return this.categories.reduce((acc, category) => {
+      acc[category] = this.allItems.filter(item => item.category === category);
+      return acc;
+    }, {} as { [key in DrinkCategory]: MenuItem[] });
   }
 
-  setCategory(category: 'ALL' | DrinkCategory) {
-    this.selectedCategory = category;
+  scrollToCategory(category: DrinkCategory) {
+    const el = document.getElementById(category);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   ngOnInit() {

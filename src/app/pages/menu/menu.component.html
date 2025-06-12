@@ -19,35 +19,36 @@
     </div>
 
     <!-- Menu Header -->
-    <div class="relative pt-48 pb-8 md:pt-32 md:pb-16 px-[5%] md:px-[10%]">
+    <div class="relative pt-48 pb-4 md:pt-32 md:pb-8 px-[5%] md:px-[10%]">
         <h1 class="text-[8vw] md:text-[4vw] font-bold text-[#2C1810] leading-none tracking-tighter mb-8 md:mb-12">MENU</h1>
         
         <!-- Menu Navigation -->
         <nav class="flex flex-wrap gap-x-10 gap-y-6 text-sm tracking-widest">
             <button 
                 *ngFor="let category of categories"
-                (click)="setCategory(category)"
-                class="relative group"
-                [class.text-[#8B6B3A]]="selectedCategory === category"
-                [class.text-[#2C1810]]="selectedCategory !== category">
+                (click)="scrollToCategory(category)"
+                class="relative group text-[#2C1810]">
                 {{category}}
-                <span 
-                    class="absolute -bottom-1 left-0 w-full h-[1px] bg-[#2C1810] transform origin-left transition-transform duration-300"
-                    [class.scale-x-100]="selectedCategory === category"
-                    [class.scale-x-0]="selectedCategory !== category">
-                </span>
             </button>
         </nav>
     </div>
 
-    <!-- Menu Items -->
+    <!-- Menu Items Grouped by Category -->
     <div class="relative px-[5%] md:px-[10%] pb-24">
         <div class="max-w-[1800px] mx-auto">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
-                <div class="max-w-[400px] mx-auto w-full sm:max-w-none menu-item" *ngFor="let item of filteredItems">
-                    <app-item-card [item]="item"></app-item-card>
-                </div>
-            </div>
+            <ng-container *ngFor="let category of categories">
+                <section [id]="category" class="mb-16">
+                    <div class="menu-category-header-row">
+                        <h2 class="menu-category-header">{{category}}</h2>
+                        <div class="menu-category-header-line"></div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+                        <div class="max-w-[400px] mx-auto w-full sm:max-w-none menu-item" *ngFor="let item of groupedItems[category]">
+                            <app-item-card [item]="item"></app-item-card>
+                        </div>
+                    </div>
+                </section>
+            </ng-container>
         </div>
     </div>
 
