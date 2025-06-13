@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoadingStateComponent } from '../../components/loading-state/loading-state.component';
+import { PreviewHeaderComponent } from '../../components/preview-header/preview-header.component';
 
 @Component({
   selector: 'app-home-about-preview',
   standalone: true,
-  imports: [CommonModule, LoadingStateComponent],
+  imports: [CommonModule, LoadingStateComponent, PreviewHeaderComponent],
   templateUrl: './home-about-preview.component.html',
   styleUrls: ['./home-about-preview.component.css']
 })

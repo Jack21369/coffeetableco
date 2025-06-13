@@ -42,11 +42,11 @@
                         <h2 class="menu-category-header">{{category}}</h2>
                         <div class="menu-category-header-line"></div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
                         <div class="max-w-[400px] mx-auto w-full sm:max-w-none menu-item" *ngFor="let item of groupedItems[category]">
-                            <app-item-card [item]="item"></app-item-card>
-                        </div>
-                    </div>
+                    <app-item-card [item]="item"></app-item-card>
+                </div>
+            </div>
                 </section>
             </ng-container>
         </div>

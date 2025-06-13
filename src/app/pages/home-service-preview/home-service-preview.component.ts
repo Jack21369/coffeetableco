@@ -5,6 +5,7 @@ import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.co
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, Observable } from 'rxjs';
 import { HostListener } from '@angular/core';
+import { PreviewHeaderComponent } from '../../components/preview-header/preview-header.component';
 
 @Component({
   selector: 'app-home-service-preview',
@@ -12,7 +13,8 @@ import { HostListener } from '@angular/core';
   imports: [
     CommonModule,
     RouterModule,
-    PrimaryBtnComponent
+    PrimaryBtnComponent,
+    PreviewHeaderComponent
   ],
   templateUrl: './home-service-preview.component.html',
   styleUrl: './home-service-preview.component.css'

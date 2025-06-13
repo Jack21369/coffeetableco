@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ItemCardComponent } from '../../components/item-card/item-card.component';
 import { RouterModule } from '@angular/router';
 import { MenuItem } from '../../shared/types/menu.types';
+import { PreviewHeaderComponent } from '../../components/preview-header/preview-header.component';
 
 @Component({
   selector: 'app-home-menu-preview',
   standalone: true,
-  imports: [CommonModule, ItemCardComponent, RouterModule],
+  imports: [CommonModule, ItemCardComponent, RouterModule, PreviewHeaderComponent],
   templateUrl: './home-menu-preview.component.html',
   styleUrl: './home-menu-preview.component.css'
 })

@@ -2,12 +2,7 @@
   <ng-container *ngIf="!(isMobile | async); else mobileServices">
     <!-- Desktop Layout -->
     <div class="services-left fixed-panel">
-      <div class="services-title-vertical-container flex flex-col items-center w-full mb-8">
-        <h2 #titleElement class="services-title-minimal fade-up-delay-1">Our Services</h2>
-        <div class="services-title-line-outer flex flex-col items-center" style="height: 2.5rem;">
-          <div class="services-title-line-anim"></div>
-        </div>
-      </div>
+      <app-preview-header [label]="'Get in Touch'" [header]="'SERVICES'"></app-preview-header>
       <div class="services-categories flex flex-col gap-6 mb-8">
         <span *ngFor="let service of services; let i = index" 
               [class.active-category]="activeServiceIndex === i"
@@ -53,12 +48,7 @@
   <ng-template #mobileServices>
     <!-- Mobile Layout -->
     <div class="services-mobile-left w-full mb-8">
-      <div class="services-title-vertical-container flex flex-col items-center w-full mb-8">
-        <h2 #mobileTitleElement class="services-title-minimal fade-up-delay-1">Our Services</h2>
-        <div class="services-title-line-outer flex flex-col items-center" style="height: 2.5rem;">
-          <div class="services-title-line-anim"></div>
-        </div>
-      </div>
+      <app-preview-header [label]="'Get in Touch'" [header]="'SERVICES'"></app-preview-header>
       <div class="services-categories flex flex-col gap-6 mb-8">
         <span *ngFor="let service of services; let i = index" 
               [class.active-category]="activeServiceIndex === i"

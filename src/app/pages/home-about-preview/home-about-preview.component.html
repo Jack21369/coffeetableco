@@ -1,9 +1,8 @@
 <section class="about-preview">
   <app-loading-state *ngIf="isLoading" message="Loading our story..."></app-loading-state>
-  
+  <app-preview-header *ngIf="!isLoading" [label]="'About Us'" [header]="'OUR STORY'"></app-preview-header>
   <div class="about-content" *ngIf="!isLoading">
     <div class="about-text">
-      <h2 class="about-title">Our Story</h2>
       <p class="about-description">
         Welcome to The Coffee Table, where we blend exceptional coffee with warm hospitality. 
         Our journey began with a simple passion for creating memorable experiences through 

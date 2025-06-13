@@ -1,17 +1,7 @@
 <section class="menu-preview-section w-full min-h-screen flex flex-col justify-center py-24 relative overflow-hidden">
     <div class="w-full max-w-[1800px] mx-auto relative z-10">
         <!-- Section label and title container -->
-        <div class="mb-16 md:mb-24">
-          <div class="menu-section-label mb-4">
-            <span #labelElement class="menu-label-text fade-up-delay-1">Our Selection</span>
-          </div>
-          <div class="relative">
-            <div class="flex flex-col md:flex-row items-start md:items-baseline gap-2 md:gap-6">
-              <h2 #featuredElement class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-2 text-[#2C1810]">FEATURED</h2>
-              <span #drinksElement class="title-text featured-title font-bold tracking-tight leading-[0.9] fade-up-delay-3 text-[#5C4321]">DRINKS</span>
-            </div>
-          </div>
-        </div>
+        <app-preview-header [label]="'Our Selection'" [header]="'FEATURED DRINKS'"></app-preview-header>
 
         <!-- Dynamic grid layout -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-24 gap-x-12 relative">

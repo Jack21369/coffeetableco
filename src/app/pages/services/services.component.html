@@ -41,8 +41,8 @@
                 </div>
                 <!-- General/Events Contact Form -->
                 <form [formGroup]="selectedType === 'Artist Submission' ? artistForm : selectedType === 'Join the Team' ? teamForm : contactForm" (ngSubmit)="onSubmit()" class="max-w-2xl">
-                  <div *ngIf="formError" class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-                    {{ formError }}
+                    <div *ngIf="formError" class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                      {{ formError }}
                   </div>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <!-- Name -->
@@ -69,7 +69,7 @@
                     </div>
                     <!-- Artist Submission unique fields -->
                     <ng-container *ngIf="selectedType === 'Artist Submission'">
-                      <div>
+                        <div>
                         <label for="artistDate" class="block text-sm font-medium text-[#2C1810] mb-2">Preferred Performance Date<span class="text-red-600">*</span></label>
                         <input type="date" id="artistDate" formControlName="date" required
                           class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
@@ -85,9 +85,9 @@
                       <div>
                         <label for="video" class="block text-sm font-medium text-[#2C1810] mb-2">Video Submission (link)<span class="text-red-600">*</span></label>
                         <input type="url" id="video" formControlName="video" required
-                          class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
-                      </div>
-                      <div>
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                        </div>
+                        <div>
                         <label for="setDuration" class="block text-sm font-medium text-[#2C1810] mb-2">Set Duration (minutes)<span class="text-red-600">*</span></label>
                         <input type="number" id="setDuration" formControlName="setDuration" min="1" required
                           class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
@@ -98,12 +98,12 @@
                       <div class="md:col-span-1">
                         <label for="resume" class="block text-sm font-medium text-[#2C1810] mb-2">Resume Upload<span class="text-red-600">*</span></label>
                         <input type="file" id="resume" (change)="onResumeChange($event)" accept=".pdf,.doc,.docx" required
-                          class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         <div *ngIf="teamForm.get('resume')?.touched && teamForm.get('resume')?.invalid" class="text-xs text-red-600 mt-1">
                           <span *ngIf="teamForm.get('resume')?.errors?.['required']">Resume is required.</span>
                         </div>
                         <div *ngIf="resumeFile" class="text-xs text-[#2C1810] mt-1">Selected file: {{ resumeFile.name }}</div>
-                      </div>
+                            </div>
                     </ng-container>
                     <!-- Event Booking unique fields -->
                     <ng-container *ngIf="selectedType === 'Event Booking'">
@@ -116,9 +116,9 @@
                         </div>
                       </div>
                       <div>
-                        <label for="numberOfPeople" class="block text-sm font-medium text-[#2C1810] mb-2">Number of People<span class="text-red-600">*</span></label>
-                        <input type="number" id="numberOfPeople" formControlName="numberOfPeople" min="1" required
-                          class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                            <label for="numberOfPeople" class="block text-sm font-medium text-[#2C1810] mb-2">Number of People<span class="text-red-600">*</span></label>
+                            <input type="number" id="numberOfPeople" formControlName="numberOfPeople" min="1" required
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         <div *ngIf="contactForm.get('numberOfPeople')?.touched && contactForm.get('numberOfPeople')?.invalid" class="text-xs text-red-600 mt-1">
                           <span *ngIf="contactForm.get('numberOfPeople')?.errors?.['required']">Number of people is required.</span>
                         </div>
@@ -135,41 +135,41 @@
                         <div class="flex-1">
                           <label for="endTime" class="block text-sm font-medium text-[#2C1810] mb-2">End Time<span class="text-red-600">*</span></label>
                           <input type="time" id="endTime" formControlName="endTime" required
-                            class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                           <div *ngIf="contactForm.get('endTime')?.touched && contactForm.get('endTime')?.invalid" class="text-xs text-red-600 mt-1">
                             <span *ngIf="contactForm.get('endTime')?.errors?.['required']">End time is required.</span>
                           </div>
                         </div>
                       </div>
                       <div>
-                        <label for="location" class="block text-sm font-medium text-[#2C1810] mb-2">Location (for events)<span class="text-red-600">*</span></label>
-                        <input type="text" id="location" formControlName="location" required
-                          class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
-                      </div>
-                      <div>
-                        <label for="theme" class="block text-sm font-medium text-[#2C1810] mb-2">Optional Theme</label>
-                        <input type="text" id="theme" formControlName="theme"
-                          class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
-                      </div>
-                      <div>
-                        <label for="drinkSelection" class="block text-sm font-medium text-[#2C1810] mb-2">Drink Specials (Pick up to 3 as specials, rest of menu remains)<span class="text-red-600">*</span></label>
-                        <div class="drink-specials-scrollbox flex flex-col gap-2">
-                          <div *ngFor="let drink of drinkOptions; let i = index">
-                            <input type="checkbox"
-                                   [id]="'drink_' + i"
-                                   [value]="drink"
-                                   [checked]="contactForm.value.drinkSelection?.includes(drink)"
-                                   (change)="onDrinkCheckboxChange($event, drink)"
-                                   [disabled]="contactForm.value.drinkSelection?.length >= 3 && !contactForm.value.drinkSelection?.includes(drink) && !contactForm.value.drinkSelection?.includes('Barista\'s Choice')">
-                            <label [for]="'drink_' + i" class="ml-2 text-sm text-[#2C1810]">{{drink}}</label>
-                          </div>
-                          <div class="flex items-center mt-2">
-                            <input type="checkbox" id="letBusinessChoose" [checked]="contactForm.value.drinkSelection?.includes('Barista\'s Choice')" (change)="onBusinessChooseChange($event)">
-                            <label for="letBusinessChoose" class="ml-2 text-sm text-[#2C1810]">Barista's Choice</label>
-                          </div>
-                          <div *ngIf="contactForm.value.drinkSelection?.length === 3 && !contactForm.value.drinkSelection?.includes('Barista\'s Choice')" class="text-xs text-red-600 mt-1">You can only select up to 3 drinks.</div>
+                            <label for="location" class="block text-sm font-medium text-[#2C1810] mb-2">Location (for events)<span class="text-red-600">*</span></label>
+                            <input type="text" id="location" formControlName="location" required
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
-                      </div>
+                      <div>
+                            <label for="theme" class="block text-sm font-medium text-[#2C1810] mb-2">Optional Theme</label>
+                            <input type="text" id="theme" formControlName="theme"
+                                class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
+                        </div>
+                      <div>
+                            <label for="drinkSelection" class="block text-sm font-medium text-[#2C1810] mb-2">Drink Specials (Pick up to 3 as specials, rest of menu remains)<span class="text-red-600">*</span></label>
+                            <div class="drink-specials-scrollbox flex flex-col gap-2">
+                              <div *ngFor="let drink of drinkOptions; let i = index">
+                                <input type="checkbox"
+                                       [id]="'drink_' + i"
+                                       [value]="drink"
+                                       [checked]="contactForm.value.drinkSelection?.includes(drink)"
+                                       (change)="onDrinkCheckboxChange($event, drink)"
+                                       [disabled]="contactForm.value.drinkSelection?.length >= 3 && !contactForm.value.drinkSelection?.includes(drink) && !contactForm.value.drinkSelection?.includes('Barista\'s Choice')">
+                                <label [for]="'drink_' + i" class="ml-2 text-sm text-[#2C1810]">{{drink}}</label>
+                              </div>
+                              <div class="flex items-center mt-2">
+                                <input type="checkbox" id="letBusinessChoose" [checked]="contactForm.value.drinkSelection?.includes('Barista\'s Choice')" (change)="onBusinessChooseChange($event)">
+                                <label for="letBusinessChoose" class="ml-2 text-sm text-[#2C1810]">Barista's Choice</label>
+                              </div>
+                              <div *ngIf="contactForm.value.drinkSelection?.length === 3 && !contactForm.value.drinkSelection?.includes('Barista\'s Choice')" class="text-xs text-red-600 mt-1">You can only select up to 3 drinks.</div>
+                            </div>
+                        </div>
                     </ng-container>
                     <!-- Referral (shared) -->
                     <div class="mb-6 md:col-span-2">
