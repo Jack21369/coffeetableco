@@ -1,5 +1,5 @@
 <!-- Main Content -->
-<main class="relative min-h-screen overflow-hidden">
+<main class="relative min-h-screen overflow-hidden" (keydown)="onKeyDown($event)">
     
     <!-- Ambient Lighting -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden">
@@ -20,8 +20,160 @@
         </div>
     </div>
 
-    <!-- Gallery Content -->
+    <!-- Gallery Grid -->
     <div class="relative px-[5%] md:px-[10%] pb-24">
-        <!-- Your existing gallery content goes here -->
+        <div class="gallery-grid">
+            <div 
+                *ngFor="let slot of gridSlots; let slotIndex = index"
+                class="grid-slot"
+                [style.grid-row]="'span ' + slot.rowSpan"
+                [style.grid-column]="'span ' + slot.colSpan"
+            >
+                <!-- Single Image Slot -->
+                <div 
+                    *ngIf="slot.type === 'single'"
+                    class="gallery-item single-item"
+                    [class.other-hovered]="hoveredImageIndex !== -1 && hoveredImageIndex !== getImageIndex(slot.images[0])"
+                    (mouseenter)="onImageHover(getImageIndex(slot.images[0]))"
+                    (mouseleave)="onImageLeave()"
+                    (click)="onImageClick(getImageIndex(slot.images[0]))"
+                >
+                    <img 
+                        [src]="slot.images[0].src" 
+                        [alt]="slot.images[0].alt"
+                        class="gallery-image"
+                        loading="lazy"
+                    />
+                    <div class="image-overlay">
+                        <div class="overlay-content">
+                            <span class="image-number">{{ getImageIndex(slot.images[0]) + 1 }}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Triple Image Slot -->
+                <div 
+                    *ngIf="slot.type === 'triple'"
+                    class="triple-slot"
+                >
+                    <!-- First small image -->
+                    <div 
+                        class="gallery-item small-item"
+                        [class.other-hovered]="hoveredImageIndex !== -1 && hoveredImageIndex !== getImageIndex(slot.images[0])"
+                        (mouseenter)="onImageHover(getImageIndex(slot.images[0]))"
+                        (mouseleave)="onImageLeave()"
+                        (click)="onImageClick(getImageIndex(slot.images[0]))"
+                    >
+                        <img 
+                            [src]="slot.images[0].src" 
+                            [alt]="slot.images[0].alt"
+                            class="gallery-image"
+                            loading="lazy"
+                        />
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="image-number">{{ getImageIndex(slot.images[0]) + 1 }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Second small image -->
+                    <div 
+                        class="gallery-item small-item"
+                        [class.other-hovered]="hoveredImageIndex !== -1 && hoveredImageIndex !== getImageIndex(slot.images[1])"
+                        (mouseenter)="onImageHover(getImageIndex(slot.images[1]))"
+                        (mouseleave)="onImageLeave()"
+                        (click)="onImageClick(getImageIndex(slot.images[1]))"
+                    >
+                        <img 
+                            [src]="slot.images[1].src" 
+                            [alt]="slot.images[1].alt"
+                            class="gallery-image"
+                            loading="lazy"
+                        />
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="image-number">{{ getImageIndex(slot.images[1]) + 1 }}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Long image -->
+                    <div 
+                        class="gallery-item long-item"
+                        [class.other-hovered]="hoveredImageIndex !== -1 && hoveredImageIndex !== getImageIndex(slot.images[2])"
+                        (mouseenter)="onImageHover(getImageIndex(slot.images[2]))"
+                        (mouseleave)="onImageLeave()"
+                        (click)="onImageClick(getImageIndex(slot.images[2]))"
+                    >
+                        <img 
+                            [src]="slot.images[2].src" 
+                            [alt]="slot.images[2].alt"
+                            class="gallery-image"
+                            loading="lazy"
+                        />
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <span class="image-number">{{ getImageIndex(slot.images[2]) + 1 }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div 
+        *ngIf="isModalOpen" 
+        class="modal-overlay"
+        (click)="onModalClick($event)"
+    >
+        <!-- Close Button -->
+        <button 
+            class="modal-close-btn"
+            (click)="closeModal()"
+            aria-label="Close gallery"
+        >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+
+        <!-- Navigation Arrows -->
+        <button 
+            class="modal-nav-btn modal-nav-prev"
+            (click)="navigateImage('prev')"
+            aria-label="Previous image"
+        >
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+
+        <button 
+            class="modal-nav-btn modal-nav-next"
+            (click)="navigateImage('next')"
+            aria-label="Next image"
+        >
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <!-- Modal Content -->
+        <div class="modal-content">
+            <img 
+                *ngIf="selectedImageIndex >= 0"
+                [src]="galleryImages[selectedImageIndex].src" 
+                [alt]="galleryImages[selectedImageIndex].alt"
+                class="modal-image"
+            />
+            
+            <!-- Image Counter -->
+            <div class="image-counter">
+                {{ selectedImageIndex + 1 }} / {{ galleryImages.length }}
+            </div>
+        </div>
     </div>
 </main>
