@@ -16,14 +16,14 @@
 
   <!-- Mobile Navbar -->
   <div class="navbar-content">
-    <div class="navbar-logo">
-      <!-- You can add a logo or site name here if desired -->
-    </div>
     <button class="hamburger" (click)="toggleMenu()" aria-label="Open menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
+    <div class="navbar-logo">
+      <img src="assets/images/wordlesslogo.svg" alt="The Coffee Table Co. Logo" class="mobile-logo-img" />
+    </div>
   </div>
   <div class="side-menu" [class.open]="menuOpen">
     <button class="close-btn" (click)="toggleMenu()" aria-label="Close menu">&times;</button>

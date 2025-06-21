@@ -1,1 +1,7 @@
 /* No custom styles needed for this component anymore */
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 10vh; /* Adjust this value to match navbar height */
+    }
+}

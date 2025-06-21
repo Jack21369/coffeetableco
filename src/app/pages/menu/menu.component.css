@@ -232,6 +232,10 @@
   .items-grid {
     grid-template-columns: 1fr;
   }
+
+  main {
+    padding-top: 10vh;
+  }
 }
 
 /* Menu items animation */

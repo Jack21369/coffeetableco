@@ -174,6 +174,35 @@ html, body {
     cursor: pointer;
 }
 
+.contacts-section-label {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #8B6B3A;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .directions-icons img {
+    border: 1px solid #bfa77a;
+    border-radius: 8px;
+    background: #f8f5f0;
+    padding: 2px;
+    transition: transform 0.2s;
+  }
+  
+  .center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(15deg);
+      height: 60%;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.98;
+      animation: logoSway 4s ease-in-out infinite;
+  }
+
 /* Animations */
 @keyframes ambientPulse {
     0%, 100% {
@@ -230,25 +259,41 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    .landing-page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        padding-bottom: 2rem;
+    }
+
     .main-title {
-        padding-left: 5%;
+        position: relative;
+        order: 2;
+        top: auto;
+        left: auto;
+        transform: none;
+        max-width: 90%;
+        padding-left: 0;
+        text-align: left;
+        align-items: left;
+        margin-top: -5rem;
     }
 
     .logo-container {
-        top: 0;
-        right: 0;
+        position: relative;
+        order: 1;
+        top: auto;
+        right: auto;
         width: 100%;
-        height: 70vh;
-        z-index: 2;
-        overflow: visible;
-        position: absolute;
+        height: 50vh;
     }
 
     .logo-circle {
         position: relative;
         top: 0;
         right: 0;
-        width: 100%;
         height: 100%;
         transform: rotate(0deg);
         display: flex;
@@ -256,20 +301,9 @@ html, body {
         justify-content: center;
     }
 
-    #canvas3d {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) !important;
-        width: 95vw !important;
-        height: 55vh !important;
-        max-width: 500px !important;
-        max-height: 500px !important;
-    }
-
     .curved-text-svg {
-        width: 75%;
-        height: 75%;
+        width: 100%;
+        height: 100%;
         opacity: 0.8;
         transform: translate(-50%, -50%) rotate(0deg);
     }
@@ -307,8 +341,7 @@ html, body {
     }
 
     .center-logo {
-        width: 100%;
-        height: 100%;
+        height: 50%;
     }
 }
 
@@ -432,35 +465,6 @@ html, body {
     align-items: flex-start;
     text-align: left;
   }
-}
-
-.contacts-section-label {
-  font-size: 1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #8B6B3A;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
-}
-
-.directions-icons img {
-  border: 1px solid #bfa77a;
-  border-radius: 8px;
-  background: #f8f5f0;
-  padding: 2px;
-  transition: transform 0.2s;
-}
-
-.center-logo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(15deg);
-    height: 65%;
-    z-index: 2;
-    pointer-events: none;
-    opacity: 0.98;
-    animation: logoSway 4s ease-in-out infinite;
 }
 
 @keyframes logoSway {
