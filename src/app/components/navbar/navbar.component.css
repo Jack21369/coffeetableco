@@ -4,20 +4,31 @@
   top: 0;
   left: 0;
   right: 0;
+  width: 100vw;
   height: 10vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgb(255, 237, 205);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
   backdrop-filter: blur(0px);
   transition: all 0.3s ease;
   z-index: 1000;
+  opacity: 0;
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+.navbar.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 /* Mobile-only translucent effect */
 @media (max-width: 768px) {
   .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
@@ -156,7 +167,31 @@
   color: #2C1810;
   text-decoration: none;
   letter-spacing: 0.04em;
-  transition: color 0.2s;
+  transition: color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+  position: relative;
+}
+
+.section-titles:hover, .section-titles:focus {
+  color: #8B6B3A;
+  transform: scale(1.07) translateY(-2px);
+}
+
+/* Optional: Animated underline effect */
+.section-titles::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #8B6B3A;
+  transition: width 0.2s;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+}
+
+.section-titles:hover::after, .section-titles:focus::after {
+  width: 100%;
 }
 
 .side-menu a:hover, .side-menu a:focus {
@@ -176,8 +211,15 @@
   transition: background 0.2s;
 }
 
-.order-button-container {
+.side-menu-bottom {
   margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-button-container {
   padding: 2rem;
   width: 100%;
   display: flex;
@@ -211,4 +253,77 @@
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   color: white;
+}
+
+.instagram-link {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.instagram-link img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.2s ease;
+}
+
+.instagram-link img:hover {
+  transform: scale(1.1);
+}
+
+/* Desktop Navbar Styles */
+.navbar-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 12vh;
+  padding: 0 5vw 0 5vw;
+  gap: 2vw;
+}
+
+.navbar-logo-img {
+  height: 3.5em;
+  max-width: 340px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+@media (min-width: 769px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    background-color: rgba(255, 249, 239, 0.985); /* Very light, semi-transparent brown */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.219);
+  }
+  .navbar-desktop {
+    display: flex;
+  }
+  .navbar-content, .side-menu, .side-menu-backdrop {
+    display: none !important;
+  }
+  .navbar-desktop a.section-titles {
+    padding: 0 0.5em;
+    margin: 0;
+    font-size: 1.1em;
+    line-height: 1.2;
+  }
+}
+
+/* Also tighten up mobile just in case */
+.navbar-desktop a.section-titles {
+  padding: 0 0.5em;
+  margin: 0;
+  font-size: 1.1em;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .navbar-desktop {
+    display: none !important;
+  }
+  
+  .navbar-content, .side-menu, .side-menu-backdrop {
+    display: block;
+  }
 }

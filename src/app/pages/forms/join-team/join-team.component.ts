@@ -1,22 +1,24 @@
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { PrimaryBtnComponent } from '../../components/primary-btn/primary-btn.component';
+import { PrimaryBtnComponent } from '../../../components/primary-btn/primary-btn.component';
+import { FormService } from '../../../services/form.service';
 
 @Component({
-  selector: 'app-services',
+  selector: 'app-join-team',
   standalone: true,
   imports: [CommonModule, RouterModule, PrimaryBtnComponent],
-  templateUrl: './services.component.html',
-  styleUrl: './services.component.css'
+  templateUrl: './join-team.component.html',
+  styleUrl: './join-team.component.css'
 })
-export class ServicesComponent implements OnInit, AfterViewInit {
+export class JoinTeamComponent implements OnInit, AfterViewInit {
   @ViewChild('contactFormContainer', { read: ElementRef }) contactFormElement!: ElementRef;
+  referralOptions: string[] = [];
 
-  constructor() {}
+  constructor(private formService: FormService) {}
 
   ngOnInit(): void {
-    // Additional initialization logic if needed
+    this.referralOptions = this.formService.getReferralOptions();
   }
 
   ngAfterViewInit() {

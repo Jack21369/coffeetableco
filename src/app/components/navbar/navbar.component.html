@@ -1,4 +1,20 @@
-<nav class="navbar" [class.scrolled]="isScrolled">
+<nav class="navbar" [class.scrolled]="isScrolled" [class.visible]="isVisible">
+  <!-- Desktop Navbar -->
+  <div class="navbar-desktop" [class.scrolled]="isScrolled">
+    <a routerLink="/">
+      <img src="assets/images/wordlesslogo.svg" alt="The Coffee Table Co. Logo" class="navbar-logo-img" />
+    </a>
+    <div class="center-nav-links flex flex-row gap-4 w-[60%] justify-between">
+      <a routerLink="/home" class="section-titles">Home</a>
+      <a routerLink="/menu" class="section-titles">Menu</a>
+      <a routerLink="/services" class="section-titles">Services</a>
+      <a routerLink="/about" class="section-titles">About Us</a>
+      <a routerLink="/gallery" class="section-titles">Gallery</a>
+    </div>
+    <app-primary-btn label="Order" href="https://www.thecoffeetable.co/" target="_blank" (click)="toggleMenu()"></app-primary-btn>
+  </div>
+
+  <!-- Mobile Navbar -->
   <div class="navbar-content">
     <div class="navbar-logo">
       <!-- You can add a logo or site name here if desired -->
@@ -18,8 +34,18 @@
       <li><a routerLink="/about" (click)="toggleMenu()" class="section-titles">About Us</a></li>
       <li><a routerLink="/gallery" (click)="toggleMenu()" class="section-titles">Gallery</a></li>
     </ul>
-    <div class="order-button-container">
-      <app-primary-btn label="Order" href="https://www.thecoffeetable.co/" target="_blank" (click)="toggleMenu()"></app-primary-btn>
+    <div class="side-menu-bottom">
+      <div class="instagram-link">
+        <a href="https://www.instagram.com/thecoffeetable.co/" target="_blank" aria-label="Instagram">
+          <picture>
+            <source srcset="assets/images/instagramicon.avif" type="image/avif">
+            <img src="assets/images/instagramicon.png" alt="Instagram" />
+          </picture>
+        </a>
+      </div>
+      <div class="order-button-container">
+        <app-primary-btn label="Order" href="https://www.thecoffeetable.co/" target="_blank" (click)="toggleMenu()"></app-primary-btn>
+      </div>
     </div>
   </div>
   <div class="side-menu-backdrop" *ngIf="menuOpen" (click)="toggleMenu()"></div>
