@@ -25,9 +25,6 @@
   margin-bottom: 4rem;
 }
 
-.view-gallery-btn {
-  align-items: flex-end;
-}
 
 @media (min-width: 768px) {
   .about-content {

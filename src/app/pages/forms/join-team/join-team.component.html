@@ -29,37 +29,38 @@
         </div>
     </div>
 
+    <app-toast [message]="toastMessage" [type]="toastType" [show]="showToast"></app-toast>
+
     <!-- Form Content -->
     <div class="relative px-[5%] md:px-[10%] pb-24">
         <div class="max-w-[1800px] mx-auto">
             <!-- Contact Form Section -->
             <div class="mb-16 contact-form-container" #contactFormContainer>
-                <form action="https://api.web3forms.com/submit" method="POST" class="max-w-2xl">
+                <form (ngSubmit)="onSubmit()" #joinForm="ngForm" class="max-w-2xl">
                     <input type="hidden" name="access_key" value="b832ef8e-5bc5-4250-9c16-0b8364dc4d60" />
                     <input type="checkbox" name="botcheck" class="hidden" style="display:none;" tabindex="-1" autocomplete="off">
                     <input type="hidden" name="subject" value="Join the Team - The Coffee Table Co" />
-                    <input type="hidden" name="redirect" value="https://web3forms.com/success" />
                     <input type="hidden" name="from_name" value="The Coffee Table Co" />
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <!-- Name -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-[#2C1810] mb-2">Name<span class="text-red-600">*</span></label>
-                            <input type="text" id="name" name="name" required
+                            <input type="text" id="name" name="name" required ngModel
                                 class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
                         
                         <!-- Email -->
                         <div>
                             <label for="email" class="block text-sm font-medium text-[#2C1810] mb-2">Email<span class="text-red-600">*</span></label>
-                            <input type="email" id="email" name="email" required
+                            <input type="email" id="email" name="email" required ngModel
                                 class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
 
                         <!-- Phone -->
                         <div>
                             <label for="phone" class="block text-sm font-medium text-[#2C1810] mb-2">Phone Number<span class="text-red-600">*</span></label>
-                            <input type="tel" id="phone" name="phone" required
+                            <input type="tel" id="phone" name="phone" required ngModel
                                 class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         </div>
                     </div>
@@ -67,7 +68,7 @@
                     <!-- Resume Link -->
                     <div class="mb-6">
                         <label for="resume" class="block text-sm font-medium text-[#2C1810] mb-2">Resume Link<span class="text-red-600">*</span></label>
-                        <input type="url" id="resume" name="resume" required placeholder="https://drive.google.com/... or https://dropbox.com/..."
+                        <input type="url" id="resume" name="resume" required placeholder="https://drive.google.com/... or https://dropbox.com/..." ngModel
                             class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                         <p class="text-sm text-[#2C1810]/60 mt-1">Please upload your resume to Google Drive or Dropbox and share the link here. Make sure the link is set to "Anyone with the link can view".</p>
                     </div>
@@ -75,7 +76,7 @@
                     <!-- Referral -->
                     <div class="mb-6">
                         <label for="referral" class="block text-sm font-medium text-[#2C1810] mb-2">How did you hear about us?<span class="text-red-600">*</span></label>
-                        <select id="referral" name="referral" required
+                        <select id="referral" name="referral" required ngModel
                             class="w-full px-4 py-2 border border-[#2C1810]/20 rounded-none focus:outline-none focus:ring-2 focus:ring-[#8B6B3A]">
                             <option value="" disabled selected>Select an option</option>
                             <option *ngFor="let option of referralOptions" [value]="option">{{option}}</option>
