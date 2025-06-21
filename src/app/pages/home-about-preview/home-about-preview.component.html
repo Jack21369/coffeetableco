@@ -15,7 +15,6 @@
         every visit special.
       </p>
     </div>
-
     <div class="about-image-container">
       <img 
         src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" 
@@ -25,12 +24,6 @@
         decoding="async"
       >
     </div>
-
-    <div class="values-grid">
-      <div class="value-item" *ngFor="let value of values">
-        <h3 class="value-title">{{ value.title }}</h3>
-        <p class="value-description">{{ value.description }}</p>
-      </div>
-    </div>
   </div>
+  <app-primary-btn label="Learn More" [routerLink]="['/about']"></app-primary-btn>
 </section>
